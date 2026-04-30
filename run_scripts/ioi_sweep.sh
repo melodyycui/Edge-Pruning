@@ -28,18 +28,27 @@ N_VAL=200 # The val split size
 # If you want to always keep embedding nodes, remove the --with_embedding_nodes flag
 # That flag, when set, also models masks over the embedding nodes
 
-# sbatch<<EOT
-# #!/bin/bash -l
-# #SBATCH --job-name=test
-# #SBATCH --nodes=1
-# #SBATCH --output=./joblog/%x-%A_%a.out                          
-# #SBATCH --gres=gpu:1
-# #SBATCH --constraint=gpu80
-# #SBATCH --mem=30G
-# #SBATCH --time=1:00:00
+sbatch<<EOT
+#!/bin/bash -l
+#SBATCH --job-name=test
+#SBATCH --nodes=1
+#SBATCH --output=./joblog/%x-%A_%a.out                          
+#SBATCH --gres=gpu:1
+#SBATCH --constraint=gpu80
+#SBATCH --mem=30G
+#SBATCH --time=3:00:00
 
 # source /scratch/gpfs/ab4197/anaconda3/etc/profile.d/conda.sh
 # conda activate moa   
+module load anaconda3/2025.12
+conda activate /scratch/network/mc3803/envs/moa
+
+# holy environment variables
+export TRANSFORMERS_OFFLINE=1
+export HF_DATASETS_OFFLINE=1
+export HF_HOME=/scratch/network/mc3803/.cache/huggingface
+export TRANSFORMERS_CACHE=/scratch/network/mc3803/.cache/huggingface
+export TRANSFORMERS_VERBOSITY=error
 
 WANDB_MODE=disabled python src/prune/fpt2_ioi.py \
     --report_to wandb \
@@ -78,6 +87,6 @@ WANDB_MODE=disabled python src/prune/fpt2_ioi.py \
     --with_embedding_nodes \
     $EXTRA
 
-# EOT
+EOT
 
 done

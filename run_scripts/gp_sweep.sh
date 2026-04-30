@@ -25,6 +25,24 @@ N_VAL=150 # The val split size
 # You can wrap the following in an sbatch script if you use SLURM
 # Activate your environment etc
 
+sbatch<<EOT
+#!/bin/bash -l
+#SBATCH --job-name=gp_test_es${EDGE_SPARSITY}
+#SBATCH --nodes=1
+#SBATCH --output=./joblog/%x-%A_%a.out
+#SBATCH --gres=gpu:1
+#SBATCH --constraint=gpu80
+#SBATCH --mem=30G
+#SBATCH --time=3:00:00
+
+module load anaconda3/2025.12
+conda activate /scratch/network/mc3803/envs/moa
+export TRANSFORMERS_OFFLINE=1
+export HF_DATASETS_OFFLINE=1
+export HF_HOME=/scratch/network/mc3803/.cache/huggingface
+export TRANSFORMERS_CACHE=/scratch/network/mc3803/.cache/huggingface
+export TRANSFORMERS_VERBOSITY=error
+
 # If you want to always keep embedding nodes, remove the --with_embedding_nodes flag
 # That flag, when set, also models masks over the embedding nodes
 
@@ -64,5 +82,5 @@ WANDB_MODE=disabled python src/prune/fpt2_gp.py \
     --warmup_type linear \
     --with_embedding_nodes \
     $EXTRA
-
+EOT
 done
