@@ -1,0 +1,1211 @@
+/scratch/network/mc3803/envs/moa/lib/python3.11/site-packages/transformers/utils/hub.py:127: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+04/24/2026 00:40:54 - WARNING - __main__ - Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: False, 16-bits training: False
+04/24/2026 00:40:54 - INFO - __main__ - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True, 'non_blocking': False, 'gradient_accumulation_kwargs': None, 'use_configured_state': False},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+batch_eval_metrics=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=True,
+dispatch_batches=None,
+do_eval=True,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=16,
+eval_delay=0,
+eval_do_concat_batches=True,
+eval_on_start=False,
+eval_steps=64,
+eval_strategy=IntervalStrategy.STEPS,
+eval_use_gather_object=False,
+evaluation_strategy=None,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=HubStrategy.EVERY_SAVE,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/runs/Apr24_00-40-54_adroit-h11g1,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=8,
+logging_strategy=IntervalStrategy.STEPS,
+lr_scheduler_kwargs={},
+lr_scheduler_type=SchedulerType.LINEAR,
+max_grad_norm=1.0,
+max_steps=3000,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=3.0,
+optim=OptimizerNames.ADAMW_TORCH,
+optim_args=None,
+optim_target_modules=None,
+output_dir=./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=16,
+per_device_train_batch_size=32,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=False,
+report_to=['wandb'],
+restore_callback_states_from_checkpoint=False,
+resume_from_checkpoint=None,
+run_name=./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=64,
+save_strategy=IntervalStrategy.STEPS,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torch_empty_cache_steps=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=200,
+weight_decay=0.0,
+)
+[INFO|hub.py:362] 2026-04-24 00:40:54,798 >> Offline mode: forcing local_files_only=True
+[INFO|modeling_utils.py:3326] 2026-04-24 00:40:54,800 >> Offline mode: forcing local_files_only=True
+[INFO|configuration_utils.py:733] 2026-04-24 00:40:54,801 >> loading configuration file config.json from cache at /scratch/network/mc3803/.cache/huggingface/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e/config.json
+[INFO|configuration_utils.py:800] 2026-04-24 00:40:54,801 >> Model config GPT2Config {
+  "activation_function": "gelu_new",
+  "architectures": [
+    "GPT2LMHeadModel"
+  ],
+  "attn_pdrop": 0.1,
+  "bos_token_id": 50256,
+  "embd_pdrop": 0.1,
+  "eos_token_id": 50256,
+  "initializer_range": 0.02,
+  "layer_norm_epsilon": 1e-05,
+  "model_type": "gpt2",
+  "n_ctx": 1024,
+  "n_embd": 768,
+  "n_head": 12,
+  "n_inner": null,
+  "n_layer": 12,
+  "n_positions": 1024,
+  "reorder_and_upcast_attn": false,
+  "resid_pdrop": 0.1,
+  "scale_attn_by_inverse_layer_idx": false,
+  "scale_attn_weights": true,
+  "summary_activation": null,
+  "summary_first_dropout": 0.1,
+  "summary_proj_to_labels": true,
+  "summary_type": "cls_index",
+  "summary_use_proj": true,
+  "task_specific_params": {
+    "text-generation": {
+      "do_sample": true,
+      "max_length": 50
+    }
+  },
+  "transformers_version": "4.44.0",
+  "use_cache": true,
+  "vocab_size": 50257
+}
+
+[INFO|modeling_utils.py:3656] 2026-04-24 00:40:54,802 >> loading weights file model.safetensors from cache at /scratch/network/mc3803/.cache/huggingface/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e/model.safetensors
+[INFO|configuration_utils.py:1038] 2026-04-24 00:40:54,813 >> Generate config GenerationConfig {
+  "bos_token_id": 50256,
+  "eos_token_id": 50256
+}
+
+[INFO|modeling_utils.py:4488] 2026-04-24 00:40:55,001 >> All model checkpoint weights were used when initializing FPT2LMHeadModel.
+
+[WARNING|modeling_utils.py:4490] 2026-04-24 00:40:55,001 >> Some weights of FPT2LMHeadModel were not initialized from the model checkpoint at gpt2 and are newly initialized: ['final_read_log_alphas', 'h.0.attn_read_common_mask', 'h.0.attn_write_common_mask', 'h.0.attn_write_log_alphas', 'h.0.k_read_log_alphas', 'h.0.mlp_read_common_mask', 'h.0.mlp_read_log_alphas', 'h.0.mlp_write_common_mask', 'h.0.mlp_write_log_alphas', 'h.0.q_read_log_alphas', 'h.0.v_read_log_alphas', 'h.1.attn_read_common_mask', 'h.1.attn_write_common_mask', 'h.1.attn_write_log_alphas', 'h.1.k_read_log_alphas', 'h.1.mlp_read_common_mask', 'h.1.mlp_read_log_alphas', 'h.1.mlp_write_common_mask', 'h.1.mlp_write_log_alphas', 'h.1.q_read_log_alphas', 'h.1.v_read_log_alphas', 'h.10.attn_read_common_mask', 'h.10.attn_write_common_mask', 'h.10.attn_write_log_alphas', 'h.10.k_read_log_alphas', 'h.10.mlp_read_common_mask', 'h.10.mlp_read_log_alphas', 'h.10.mlp_write_common_mask', 'h.10.mlp_write_log_alphas', 'h.10.q_read_log_alphas', 'h.10.v_read_log_alphas', 'h.11.attn_read_common_mask', 'h.11.attn_write_common_mask', 'h.11.attn_write_log_alphas', 'h.11.k_read_log_alphas', 'h.11.mlp_read_common_mask', 'h.11.mlp_read_log_alphas', 'h.11.mlp_write_common_mask', 'h.11.mlp_write_log_alphas', 'h.11.q_read_log_alphas', 'h.11.v_read_log_alphas', 'h.2.attn_read_common_mask', 'h.2.attn_write_common_mask', 'h.2.attn_write_log_alphas', 'h.2.k_read_log_alphas', 'h.2.mlp_read_common_mask', 'h.2.mlp_read_log_alphas', 'h.2.mlp_write_common_mask', 'h.2.mlp_write_log_alphas', 'h.2.q_read_log_alphas', 'h.2.v_read_log_alphas', 'h.3.attn_read_common_mask', 'h.3.attn_write_common_mask', 'h.3.attn_write_log_alphas', 'h.3.k_read_log_alphas', 'h.3.mlp_read_common_mask', 'h.3.mlp_read_log_alphas', 'h.3.mlp_write_common_mask', 'h.3.mlp_write_log_alphas', 'h.3.q_read_log_alphas', 'h.3.v_read_log_alphas', 'h.4.attn_read_common_mask', 'h.4.attn_write_common_mask', 'h.4.attn_write_log_alphas', 'h.4.k_read_log_alphas', 'h.4.mlp_read_common_mask', 'h.4.mlp_read_log_alphas', 'h.4.mlp_write_common_mask', 'h.4.mlp_write_log_alphas', 'h.4.q_read_log_alphas', 'h.4.v_read_log_alphas', 'h.5.attn_read_common_mask', 'h.5.attn_write_common_mask', 'h.5.attn_write_log_alphas', 'h.5.k_read_log_alphas', 'h.5.mlp_read_common_mask', 'h.5.mlp_read_log_alphas', 'h.5.mlp_write_common_mask', 'h.5.mlp_write_log_alphas', 'h.5.q_read_log_alphas', 'h.5.v_read_log_alphas', 'h.6.attn_read_common_mask', 'h.6.attn_write_common_mask', 'h.6.attn_write_log_alphas', 'h.6.k_read_log_alphas', 'h.6.mlp_read_common_mask', 'h.6.mlp_read_log_alphas', 'h.6.mlp_write_common_mask', 'h.6.mlp_write_log_alphas', 'h.6.q_read_log_alphas', 'h.6.v_read_log_alphas', 'h.7.attn_read_common_mask', 'h.7.attn_write_common_mask', 'h.7.attn_write_log_alphas', 'h.7.k_read_log_alphas', 'h.7.mlp_read_common_mask', 'h.7.mlp_read_log_alphas', 'h.7.mlp_write_common_mask', 'h.7.mlp_write_log_alphas', 'h.7.q_read_log_alphas', 'h.7.v_read_log_alphas', 'h.8.attn_read_common_mask', 'h.8.attn_write_common_mask', 'h.8.attn_write_log_alphas', 'h.8.k_read_log_alphas', 'h.8.mlp_read_common_mask', 'h.8.mlp_read_log_alphas', 'h.8.mlp_write_common_mask', 'h.8.mlp_write_log_alphas', 'h.8.q_read_log_alphas', 'h.8.v_read_log_alphas', 'h.9.attn_read_common_mask', 'h.9.attn_write_common_mask', 'h.9.attn_write_log_alphas', 'h.9.k_read_log_alphas', 'h.9.mlp_read_common_mask', 'h.9.mlp_read_log_alphas', 'h.9.mlp_write_common_mask', 'h.9.mlp_write_log_alphas', 'h.9.q_read_log_alphas', 'h.9.v_read_log_alphas', 'pos_write_log_alpha', 'pos_write_mask', 'sparsity_lambda_edges_1', 'sparsity_lambda_edges_2', 'sparsity_lambda_nodes_1', 'sparsity_lambda_nodes_2', 'token_write_log_alpha', 'token_write_mask']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[INFO|configuration_utils.py:993] 2026-04-24 00:40:55,002 >> loading configuration file generation_config.json from cache at /scratch/network/mc3803/.cache/huggingface/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e/generation_config.json
+[INFO|configuration_utils.py:1038] 2026-04-24 00:40:55,002 >> Generate config GenerationConfig {
+  "bos_token_id": 50256,
+  "eos_token_id": 50256
+}
+
+[INFO|hub.py:362] 2026-04-24 00:40:55,020 >> Offline mode: forcing local_files_only=True
+[INFO|modeling_utils.py:3326] 2026-04-24 00:40:55,020 >> Offline mode: forcing local_files_only=True
+[INFO|configuration_utils.py:733] 2026-04-24 00:40:55,021 >> loading configuration file config.json from cache at /scratch/network/mc3803/.cache/huggingface/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e/config.json
+[INFO|configuration_utils.py:800] 2026-04-24 00:40:55,021 >> Model config GPT2Config {
+  "activation_function": "gelu_new",
+  "architectures": [
+    "GPT2LMHeadModel"
+  ],
+  "attn_pdrop": 0.1,
+  "bos_token_id": 50256,
+  "embd_pdrop": 0.1,
+  "eos_token_id": 50256,
+  "initializer_range": 0.02,
+  "layer_norm_epsilon": 1e-05,
+  "model_type": "gpt2",
+  "n_ctx": 1024,
+  "n_embd": 768,
+  "n_head": 12,
+  "n_inner": null,
+  "n_layer": 12,
+  "n_positions": 1024,
+  "reorder_and_upcast_attn": false,
+  "resid_pdrop": 0.1,
+  "scale_attn_by_inverse_layer_idx": false,
+  "scale_attn_weights": true,
+  "summary_activation": null,
+  "summary_first_dropout": 0.1,
+  "summary_proj_to_labels": true,
+  "summary_type": "cls_index",
+  "summary_use_proj": true,
+  "task_specific_params": {
+    "text-generation": {
+      "do_sample": true,
+      "max_length": 50
+    }
+  },
+  "transformers_version": "4.44.0",
+  "use_cache": true,
+  "vocab_size": 50257
+}
+
+[INFO|modeling_utils.py:3656] 2026-04-24 00:40:55,021 >> loading weights file model.safetensors from cache at /scratch/network/mc3803/.cache/huggingface/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e/model.safetensors
+[INFO|configuration_utils.py:1038] 2026-04-24 00:40:55,025 >> Generate config GenerationConfig {
+  "bos_token_id": 50256,
+  "eos_token_id": 50256
+}
+
+[INFO|modeling_utils.py:4488] 2026-04-24 00:40:55,206 >> All model checkpoint weights were used when initializing FPT2LMHeadModel.
+
+[WARNING|modeling_utils.py:4490] 2026-04-24 00:40:55,206 >> Some weights of FPT2LMHeadModel were not initialized from the model checkpoint at gpt2 and are newly initialized: ['final_read_log_alphas', 'h.0.attn_read_common_mask', 'h.0.attn_write_common_mask', 'h.0.attn_write_log_alphas', 'h.0.k_read_log_alphas', 'h.0.mlp_read_common_mask', 'h.0.mlp_read_log_alphas', 'h.0.mlp_write_common_mask', 'h.0.mlp_write_log_alphas', 'h.0.q_read_log_alphas', 'h.0.v_read_log_alphas', 'h.1.attn_read_common_mask', 'h.1.attn_write_common_mask', 'h.1.attn_write_log_alphas', 'h.1.k_read_log_alphas', 'h.1.mlp_read_common_mask', 'h.1.mlp_read_log_alphas', 'h.1.mlp_write_common_mask', 'h.1.mlp_write_log_alphas', 'h.1.q_read_log_alphas', 'h.1.v_read_log_alphas', 'h.10.attn_read_common_mask', 'h.10.attn_write_common_mask', 'h.10.attn_write_log_alphas', 'h.10.k_read_log_alphas', 'h.10.mlp_read_common_mask', 'h.10.mlp_read_log_alphas', 'h.10.mlp_write_common_mask', 'h.10.mlp_write_log_alphas', 'h.10.q_read_log_alphas', 'h.10.v_read_log_alphas', 'h.11.attn_read_common_mask', 'h.11.attn_write_common_mask', 'h.11.attn_write_log_alphas', 'h.11.k_read_log_alphas', 'h.11.mlp_read_common_mask', 'h.11.mlp_read_log_alphas', 'h.11.mlp_write_common_mask', 'h.11.mlp_write_log_alphas', 'h.11.q_read_log_alphas', 'h.11.v_read_log_alphas', 'h.2.attn_read_common_mask', 'h.2.attn_write_common_mask', 'h.2.attn_write_log_alphas', 'h.2.k_read_log_alphas', 'h.2.mlp_read_common_mask', 'h.2.mlp_read_log_alphas', 'h.2.mlp_write_common_mask', 'h.2.mlp_write_log_alphas', 'h.2.q_read_log_alphas', 'h.2.v_read_log_alphas', 'h.3.attn_read_common_mask', 'h.3.attn_write_common_mask', 'h.3.attn_write_log_alphas', 'h.3.k_read_log_alphas', 'h.3.mlp_read_common_mask', 'h.3.mlp_read_log_alphas', 'h.3.mlp_write_common_mask', 'h.3.mlp_write_log_alphas', 'h.3.q_read_log_alphas', 'h.3.v_read_log_alphas', 'h.4.attn_read_common_mask', 'h.4.attn_write_common_mask', 'h.4.attn_write_log_alphas', 'h.4.k_read_log_alphas', 'h.4.mlp_read_common_mask', 'h.4.mlp_read_log_alphas', 'h.4.mlp_write_common_mask', 'h.4.mlp_write_log_alphas', 'h.4.q_read_log_alphas', 'h.4.v_read_log_alphas', 'h.5.attn_read_common_mask', 'h.5.attn_write_common_mask', 'h.5.attn_write_log_alphas', 'h.5.k_read_log_alphas', 'h.5.mlp_read_common_mask', 'h.5.mlp_read_log_alphas', 'h.5.mlp_write_common_mask', 'h.5.mlp_write_log_alphas', 'h.5.q_read_log_alphas', 'h.5.v_read_log_alphas', 'h.6.attn_read_common_mask', 'h.6.attn_write_common_mask', 'h.6.attn_write_log_alphas', 'h.6.k_read_log_alphas', 'h.6.mlp_read_common_mask', 'h.6.mlp_read_log_alphas', 'h.6.mlp_write_common_mask', 'h.6.mlp_write_log_alphas', 'h.6.q_read_log_alphas', 'h.6.v_read_log_alphas', 'h.7.attn_read_common_mask', 'h.7.attn_write_common_mask', 'h.7.attn_write_log_alphas', 'h.7.k_read_log_alphas', 'h.7.mlp_read_common_mask', 'h.7.mlp_read_log_alphas', 'h.7.mlp_write_common_mask', 'h.7.mlp_write_log_alphas', 'h.7.q_read_log_alphas', 'h.7.v_read_log_alphas', 'h.8.attn_read_common_mask', 'h.8.attn_write_common_mask', 'h.8.attn_write_log_alphas', 'h.8.k_read_log_alphas', 'h.8.mlp_read_common_mask', 'h.8.mlp_read_log_alphas', 'h.8.mlp_write_common_mask', 'h.8.mlp_write_log_alphas', 'h.8.q_read_log_alphas', 'h.8.v_read_log_alphas', 'h.9.attn_read_common_mask', 'h.9.attn_write_common_mask', 'h.9.attn_write_log_alphas', 'h.9.k_read_log_alphas', 'h.9.mlp_read_common_mask', 'h.9.mlp_read_log_alphas', 'h.9.mlp_write_common_mask', 'h.9.mlp_write_log_alphas', 'h.9.q_read_log_alphas', 'h.9.v_read_log_alphas', 'pos_write_log_alpha', 'pos_write_mask', 'sparsity_lambda_edges_1', 'sparsity_lambda_edges_2', 'sparsity_lambda_nodes_1', 'sparsity_lambda_nodes_2', 'token_write_log_alpha', 'token_write_mask']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[INFO|configuration_utils.py:993] 2026-04-24 00:40:55,207 >> loading configuration file generation_config.json from cache at /scratch/network/mc3803/.cache/huggingface/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e/generation_config.json
+[INFO|configuration_utils.py:1038] 2026-04-24 00:40:55,207 >> Generate config GenerationConfig {
+  "bos_token_id": 50256,
+  "eos_token_id": 50256
+}
+
+[INFO|hub.py:362] 2026-04-24 00:40:55,404 >> Offline mode: forcing local_files_only=True
+[INFO|hub.py:362] 2026-04-24 00:40:55,406 >> Offline mode: forcing local_files_only=True
+[INFO|configuration_utils.py:733] 2026-04-24 00:40:55,406 >> loading configuration file config.json from cache at /scratch/network/mc3803/.cache/huggingface/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e/config.json
+[INFO|configuration_utils.py:800] 2026-04-24 00:40:55,406 >> Model config GPT2Config {
+  "_name_or_path": "gpt2",
+  "activation_function": "gelu_new",
+  "architectures": [
+    "GPT2LMHeadModel"
+  ],
+  "attn_pdrop": 0.1,
+  "bos_token_id": 50256,
+  "embd_pdrop": 0.1,
+  "eos_token_id": 50256,
+  "initializer_range": 0.02,
+  "layer_norm_epsilon": 1e-05,
+  "model_type": "gpt2",
+  "n_ctx": 1024,
+  "n_embd": 768,
+  "n_head": 12,
+  "n_inner": null,
+  "n_layer": 12,
+  "n_positions": 1024,
+  "reorder_and_upcast_attn": false,
+  "resid_pdrop": 0.1,
+  "scale_attn_by_inverse_layer_idx": false,
+  "scale_attn_weights": true,
+  "summary_activation": null,
+  "summary_first_dropout": 0.1,
+  "summary_proj_to_labels": true,
+  "summary_type": "cls_index",
+  "summary_use_proj": true,
+  "task_specific_params": {
+    "text-generation": {
+      "do_sample": true,
+      "max_length": 50
+    }
+  },
+  "transformers_version": "4.44.0",
+  "use_cache": true,
+  "vocab_size": 50257
+}
+
+[INFO|tokenization_utils_base.py:2150] 2026-04-24 00:40:55,407 >> Offline mode: forcing local_files_only=True
+[INFO|tokenization_utils_base.py:2269] 2026-04-24 00:40:55,408 >> loading file vocab.json from cache at /scratch/network/mc3803/.cache/huggingface/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e/vocab.json
+[INFO|tokenization_utils_base.py:2269] 2026-04-24 00:40:55,408 >> loading file merges.txt from cache at /scratch/network/mc3803/.cache/huggingface/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e/merges.txt
+[INFO|tokenization_utils_base.py:2269] 2026-04-24 00:40:55,408 >> loading file tokenizer.json from cache at /scratch/network/mc3803/.cache/huggingface/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e/tokenizer.json
+[INFO|tokenization_utils_base.py:2269] 2026-04-24 00:40:55,408 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2269] 2026-04-24 00:40:55,408 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:2269] 2026-04-24 00:40:55,408 >> loading file tokenizer_config.json from cache at /scratch/network/mc3803/.cache/huggingface/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e/tokenizer_config.json
+[INFO|configuration_utils.py:733] 2026-04-24 00:40:55,408 >> loading configuration file config.json from cache at /scratch/network/mc3803/.cache/huggingface/models--gpt2/snapshots/607a30d783dfa663caf39e06633721c8d4cfcd7e/config.json
+[INFO|configuration_utils.py:800] 2026-04-24 00:40:55,409 >> Model config GPT2Config {
+  "_name_or_path": "gpt2",
+  "activation_function": "gelu_new",
+  "architectures": [
+    "GPT2LMHeadModel"
+  ],
+  "attn_pdrop": 0.1,
+  "bos_token_id": 50256,
+  "embd_pdrop": 0.1,
+  "eos_token_id": 50256,
+  "initializer_range": 0.02,
+  "layer_norm_epsilon": 1e-05,
+  "model_type": "gpt2",
+  "n_ctx": 1024,
+  "n_embd": 768,
+  "n_head": 12,
+  "n_inner": null,
+  "n_layer": 12,
+  "n_positions": 1024,
+  "reorder_and_upcast_attn": false,
+  "resid_pdrop": 0.1,
+  "scale_attn_by_inverse_layer_idx": false,
+  "scale_attn_weights": true,
+  "summary_activation": null,
+  "summary_first_dropout": 0.1,
+  "summary_proj_to_labels": true,
+  "summary_type": "cls_index",
+  "summary_use_proj": true,
+  "task_specific_params": {
+    "text-generation": {
+      "do_sample": true,
+      "max_length": 50
+    }
+  },
+  "transformers_version": "4.44.0",
+  "use_cache": true,
+  "vocab_size": 50257
+}
+
+/scratch/network/mc3803/envs/moa/lib/python3.11/site-packages/transformers/tokenization_utils_base.py:1601: FutureWarning: `clean_up_tokenization_spaces` was not set. It will be set to `True` by default. This behavior will be depracted in transformers v4.45, and will be then set to `False` by default. For more details check this issue: https://github.com/huggingface/transformers/issues/31884
+  warnings.warn(
+[WARNING|trainer.py:608] 2026-04-24 00:40:56,813 >> max_steps is given, it will override any value given in num_train_epochs
+[INFO|trainer.py:2144] 2026-04-24 00:40:56,918 >> ***** Running training *****
+[INFO|trainer.py:2145] 2026-04-24 00:40:56,918 >>   Num examples = 20
+[INFO|trainer.py:2146] 2026-04-24 00:40:56,918 >>   Num Epochs = 3,000
+[INFO|trainer.py:2147] 2026-04-24 00:40:56,918 >>   Instantaneous batch size per device = 32
+[INFO|trainer.py:2150] 2026-04-24 00:40:56,918 >>   Total train batch size (w. parallel, distributed & accumulation) = 32
+[INFO|trainer.py:2151] 2026-04-24 00:40:56,918 >>   Gradient Accumulation steps = 1
+[INFO|trainer.py:2152] 2026-04-24 00:40:56,918 >>   Total optimization steps = 3,000
+[INFO|trainer.py:2153] 2026-04-24 00:40:56,918 >>   Number of trainable parameters = 70,472
+[INFO|integration_utils.py:807] 2026-04-24 00:40:56,919 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+wandb: WARNING The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+[INFO|trainer.py:3829] 2026-04-24 00:41:55,485 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:41:55,485 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:41:55,485 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:42:02,896 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-64
+[INFO|configuration_utils.py:472] 2026-04-24 00:42:02,898 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-64/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:42:02,898 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-64/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:42:03,405 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-64/model.safetensors
+[INFO|trainer.py:3829] 2026-04-24 00:43:01,800 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:43:01,800 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:43:01,800 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:43:09,231 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-128
+[INFO|configuration_utils.py:472] 2026-04-24 00:43:09,232 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-128/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:43:09,233 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-128/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:43:09,738 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-128/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:43:09,751 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-64] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:44:08,239 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:44:08,239 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:44:08,239 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:44:15,666 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-192
+[INFO|configuration_utils.py:472] 2026-04-24 00:44:15,667 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-192/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:44:15,668 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-192/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:44:16,189 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-192/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:44:16,203 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-128] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:45:14,691 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:45:14,691 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:45:14,691 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:45:22,124 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-256
+[INFO|configuration_utils.py:472] 2026-04-24 00:45:22,125 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-256/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:45:22,126 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-256/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:45:22,641 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-256/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:45:22,655 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-192] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:46:21,169 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:46:21,169 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:46:21,169 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:46:28,602 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-320
+[INFO|configuration_utils.py:472] 2026-04-24 00:46:28,603 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-320/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:46:28,604 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-320/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:46:29,156 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-320/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:46:29,168 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-256] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:47:27,707 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:47:27,707 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:47:27,707 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:47:35,150 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-384
+[INFO|configuration_utils.py:472] 2026-04-24 00:47:35,152 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-384/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:47:35,152 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-384/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:47:35,726 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-384/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:47:35,739 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-320] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:48:34,261 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:48:34,261 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:48:34,261 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:48:41,697 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-448
+[INFO|configuration_utils.py:472] 2026-04-24 00:48:41,698 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-448/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:48:41,699 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-448/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:48:42,223 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-448/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:48:42,236 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-384] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:49:40,753 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:49:40,753 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:49:40,753 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:49:48,191 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-512
+[INFO|configuration_utils.py:472] 2026-04-24 00:49:48,193 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-512/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:49:48,193 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-512/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:49:48,734 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-512/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:49:48,747 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-448] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:50:47,299 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:50:47,299 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:50:47,299 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:50:54,759 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-576
+[INFO|configuration_utils.py:472] 2026-04-24 00:50:54,761 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-576/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:50:54,761 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-576/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:50:55,290 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-576/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:50:55,305 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-512] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:51:53,803 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:51:53,804 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:51:53,804 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:52:01,254 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-640
+[INFO|configuration_utils.py:472] 2026-04-24 00:52:01,256 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-640/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:52:01,256 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-640/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:52:01,805 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-640/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:52:01,821 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-576] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:53:00,332 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:53:00,332 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:53:00,332 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:53:07,774 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-704
+[INFO|configuration_utils.py:472] 2026-04-24 00:53:07,775 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-704/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:53:07,776 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-704/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:53:08,290 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-704/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:53:08,305 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-640] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:54:06,815 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:54:06,815 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:54:06,815 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:54:14,265 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-768
+[INFO|configuration_utils.py:472] 2026-04-24 00:54:14,267 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-768/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:54:14,267 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-768/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:54:14,813 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-768/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:54:14,828 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-704] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:55:13,333 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:55:13,333 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:55:13,333 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:55:20,775 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-832
+[INFO|configuration_utils.py:472] 2026-04-24 00:55:20,776 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-832/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:55:20,777 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-832/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:55:21,301 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-832/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:55:21,314 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-768] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:56:19,824 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:56:19,824 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:56:19,824 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:56:27,271 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-896
+[INFO|configuration_utils.py:472] 2026-04-24 00:56:27,273 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-896/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:56:27,273 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-896/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:56:27,843 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-896/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:56:27,858 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-832] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:57:26,392 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:57:26,392 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:57:26,393 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:57:33,835 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-960
+[INFO|configuration_utils.py:472] 2026-04-24 00:57:33,836 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-960/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:57:33,837 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-960/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:57:34,410 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-960/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:57:34,426 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-896] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:58:32,960 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:58:32,960 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:58:32,960 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:58:40,420 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1024
+[INFO|configuration_utils.py:472] 2026-04-24 00:58:40,422 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1024/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:58:40,422 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1024/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:58:40,980 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1024/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:58:40,996 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-960] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 00:59:39,521 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 00:59:39,521 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 00:59:39,521 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 00:59:46,962 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1088
+[INFO|configuration_utils.py:472] 2026-04-24 00:59:46,964 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1088/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 00:59:46,964 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1088/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 00:59:47,530 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1088/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 00:59:47,546 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1024] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:00:46,079 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:00:46,080 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:00:46,080 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:00:53,528 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1152
+[INFO|configuration_utils.py:472] 2026-04-24 01:00:53,530 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1152/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:00:53,530 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1152/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:00:54,087 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1152/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:00:54,103 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1088] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:01:52,637 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:01:52,638 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:01:52,638 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:02:00,078 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1216
+[INFO|configuration_utils.py:472] 2026-04-24 01:02:00,080 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1216/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:02:00,080 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1216/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:02:00,657 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1216/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:02:00,671 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1152] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:02:59,188 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:02:59,188 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:02:59,188 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:03:06,640 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1280
+[INFO|configuration_utils.py:472] 2026-04-24 01:03:06,642 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1280/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:03:06,643 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1280/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:03:07,194 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1280/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:03:07,209 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1216] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:04:05,736 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:04:05,737 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:04:05,737 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:04:13,176 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1344
+[INFO|configuration_utils.py:472] 2026-04-24 01:04:13,178 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1344/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:04:13,179 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1344/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:04:13,736 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1344/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:04:13,753 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1280] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:05:12,291 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:05:12,291 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:05:12,291 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:05:19,731 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1408
+[INFO|configuration_utils.py:472] 2026-04-24 01:05:19,733 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1408/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:05:19,734 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1408/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:05:20,260 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1408/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:05:20,277 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1344] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:06:18,783 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:06:18,784 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:06:18,784 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:06:26,242 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1472
+[INFO|configuration_utils.py:472] 2026-04-24 01:06:26,244 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1472/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:06:26,245 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1472/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:06:26,782 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1472/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:06:26,797 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1408] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:07:25,312 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:07:25,312 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:07:25,312 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:07:32,754 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1536
+[INFO|configuration_utils.py:472] 2026-04-24 01:07:32,756 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1536/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:07:32,757 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1536/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:07:33,276 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1536/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:07:33,291 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1472] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:08:31,799 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:08:31,799 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:08:31,799 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:08:39,241 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1600
+[INFO|configuration_utils.py:472] 2026-04-24 01:08:39,243 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1600/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:08:39,243 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1600/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:08:39,775 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1600/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:08:39,792 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1536] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:09:38,307 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:09:38,307 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:09:38,307 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:09:45,748 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1664
+[INFO|configuration_utils.py:472] 2026-04-24 01:09:45,750 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1664/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:09:45,750 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1664/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:09:46,264 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1664/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:09:46,280 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1600] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:10:44,784 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:10:44,784 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:10:44,784 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:10:52,241 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1728
+[INFO|configuration_utils.py:472] 2026-04-24 01:10:52,243 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1728/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:10:52,244 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1728/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:10:52,777 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1728/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:10:52,792 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1664] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:11:51,296 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:11:51,296 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:11:51,296 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:11:58,735 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1792
+[INFO|configuration_utils.py:472] 2026-04-24 01:11:58,737 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1792/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:11:58,738 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1792/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:11:59,283 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1792/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:11:59,300 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1728] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:12:57,815 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:12:57,815 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:12:57,815 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:13:05,254 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1856
+[INFO|configuration_utils.py:472] 2026-04-24 01:13:05,256 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1856/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:13:05,256 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1856/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:13:05,811 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1856/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:13:05,827 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1792] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:14:04,340 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:14:04,340 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:14:04,340 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:14:11,779 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1920
+[INFO|configuration_utils.py:472] 2026-04-24 01:14:11,781 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1920/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:14:11,781 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1920/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:14:12,327 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1920/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:14:12,343 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1856] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:15:10,869 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:15:10,869 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:15:10,869 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:15:18,309 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1984
+[INFO|configuration_utils.py:472] 2026-04-24 01:15:18,311 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1984/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:15:18,311 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1984/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:15:18,885 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1984/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:15:18,904 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1920] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:16:17,407 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:16:17,407 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:16:17,407 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:16:24,863 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2048
+[INFO|configuration_utils.py:472] 2026-04-24 01:16:24,865 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2048/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:16:24,866 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2048/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:16:25,412 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2048/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:16:25,428 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-1984] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:17:23,948 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:17:23,948 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:17:23,948 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:17:31,388 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2112
+[INFO|configuration_utils.py:472] 2026-04-24 01:17:31,390 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2112/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:17:31,391 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2112/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:17:31,970 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2112/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:17:31,986 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2048] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:18:30,479 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:18:30,479 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:18:30,479 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:18:37,919 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2176
+[INFO|configuration_utils.py:472] 2026-04-24 01:18:37,921 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2176/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:18:37,922 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2176/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:18:38,473 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2176/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:18:38,489 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2112] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:19:36,996 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:19:36,996 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:19:36,996 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:19:44,435 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2240
+[INFO|configuration_utils.py:472] 2026-04-24 01:19:44,437 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2240/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:19:44,437 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2240/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:19:44,955 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2240/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:19:44,973 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2176] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:20:43,466 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:20:43,466 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:20:43,466 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:20:50,904 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2304
+[INFO|configuration_utils.py:472] 2026-04-24 01:20:50,907 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2304/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:20:50,907 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2304/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:20:51,465 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2304/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:20:51,483 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2240] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:21:49,985 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:21:49,986 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:21:49,986 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:21:57,438 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2368
+[INFO|configuration_utils.py:472] 2026-04-24 01:21:57,440 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2368/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:21:57,441 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2368/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:21:57,997 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2368/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:21:58,014 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2304] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:22:56,521 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:22:56,521 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:22:56,521 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:23:03,960 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2432
+[INFO|configuration_utils.py:472] 2026-04-24 01:23:03,962 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2432/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:23:03,962 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2432/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:23:04,510 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2432/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:23:04,528 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2368] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:24:03,018 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:24:03,018 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:24:03,018 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:24:10,452 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2496
+[INFO|configuration_utils.py:472] 2026-04-24 01:24:10,454 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2496/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:24:10,454 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2496/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:24:11,019 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2496/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:24:11,037 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2432] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:25:09,518 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:25:09,518 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:25:09,518 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:25:16,954 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2560
+[INFO|configuration_utils.py:472] 2026-04-24 01:25:16,956 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2560/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:25:16,957 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2560/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:25:17,512 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2560/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:25:17,531 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2496] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:26:15,995 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:26:15,995 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:26:15,995 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:26:23,433 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2624
+[INFO|configuration_utils.py:472] 2026-04-24 01:26:23,435 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2624/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:26:23,436 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2624/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:26:24,004 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2624/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:26:24,023 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2560] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:27:22,478 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:27:22,478 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:27:22,478 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:27:29,911 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2688
+[INFO|configuration_utils.py:472] 2026-04-24 01:27:29,914 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2688/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:27:29,914 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2688/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:27:30,472 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2688/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:27:30,488 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2624] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:28:28,943 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:28:28,943 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:28:28,943 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:28:36,377 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2752
+[INFO|configuration_utils.py:472] 2026-04-24 01:28:36,379 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2752/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:28:36,379 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2752/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:28:36,914 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2752/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:28:36,931 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2688] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:29:35,372 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:29:35,372 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:29:35,372 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:29:42,807 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2816
+[INFO|configuration_utils.py:472] 2026-04-24 01:29:42,809 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2816/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:29:42,809 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2816/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:29:43,361 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2816/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:29:43,378 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2752] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:30:41,830 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:30:41,830 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:30:41,830 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:30:49,263 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2880
+[INFO|configuration_utils.py:472] 2026-04-24 01:30:49,265 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2880/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:30:49,266 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2880/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:30:49,791 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2880/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:30:49,811 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2816] due to args.save_total_limit
+[INFO|trainer.py:3829] 2026-04-24 01:31:48,259 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:3831] 2026-04-24 01:31:48,259 >>   Num examples = 200
+[INFO|trainer.py:3834] 2026-04-24 01:31:48,259 >>   Batch size = 16
+[INFO|trainer.py:3513] 2026-04-24 01:31:55,712 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2944
+[INFO|configuration_utils.py:472] 2026-04-24 01:31:55,714 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2944/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:31:55,714 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2944/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:31:56,258 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2944/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:31:56,278 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2880] due to args.save_total_limit
+[INFO|trainer.py:3513] 2026-04-24 01:32:47,414 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-3000
+[INFO|configuration_utils.py:472] 2026-04-24 01:32:47,416 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-3000/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:32:47,416 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-3000/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:32:47,984 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-3000/model.safetensors
+[INFO|trainer.py:3605] 2026-04-24 01:32:48,002 >> Deleting older checkpoint [data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/checkpoint-2944] due to args.save_total_limit
+[INFO|trainer.py:2404] 2026-04-24 01:32:48,054 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+[INFO|trainer.py:3513] 2026-04-24 01:32:48,055 >> Saving model checkpoint to ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/
+[INFO|configuration_utils.py:472] 2026-04-24 01:32:48,056 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/config.json
+[INFO|configuration_utils.py:807] 2026-04-24 01:32:48,057 >> Configuration saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/generation_config.json
+[INFO|modeling_utils.py:2777] 2026-04-24 01:32:48,609 >> Model weights saved in ./data/runs/ioi-n20-wo_node_loss_n20-elr0.8-llr0.8-relr0.8-rllr0.8-es0.98-ns0.72-t3000/model.safetensors
+[INFO|modelcard.py:449] 2026-04-24 01:32:48,618 >> Dropping the following result as it does not have all the necessary fields:
+{'metrics': [{'name': 'Accuracy', 'type': 'accuracy', 'value': 0.35}]}
+{'loss': 0.0001, 'grad_norm': 0.0032968204468488693, 'learning_rate': 0.032, 'epoch': 8.0}
+{'loss': 0.0017, 'grad_norm': 0.007196496706455946, 'learning_rate': 0.064, 'epoch': 16.0}
+{'loss': 0.0061, 'grad_norm': 0.011115431785583496, 'learning_rate': 0.096, 'epoch': 24.0}
+{'loss': 0.0182, 'grad_norm': 0.014995123259723186, 'learning_rate': 0.128, 'epoch': 32.0}
+{'loss': 0.0409, 'grad_norm': 0.018922002986073494, 'learning_rate': 0.16000000000000003, 'epoch': 40.0}
+{'loss': 0.0788, 'grad_norm': 0.022809484973549843, 'learning_rate': 0.192, 'epoch': 48.0}
+{'loss': 0.1349, 'grad_norm': 0.026579704135656357, 'learning_rate': 0.22400000000000003, 'epoch': 56.0}
+{'loss': 0.213, 'grad_norm': 0.03050401248037815, 'learning_rate': 0.256, 'epoch': 64.0}
+{'eval_accuracy': 0.845, 'eval_kl_loss': -5.792616608601975e-09, 'eval_reg_edge_loss': 0.26856333017349243, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.26856333017349243, 'eval_model_edge_sparsity': 1.609325408935547e-05, 'eval_model_layer_sparsity': 1.5437602996826172e-05, 'eval_target_edge_sparsity': 0.025087999179959297, 'eval_target_layer_sparsity': 0.018432000651955605, 'eval_runtime': 7.4055, 'eval_samples_per_second': 27.007, 'eval_steps_per_second': 1.755, 'epoch': 64.0}
+{'loss': 0.318, 'grad_norm': 0.034213144332170486, 'learning_rate': 0.288, 'epoch': 72.0}
+{'loss': 0.4503, 'grad_norm': 0.03828864172101021, 'learning_rate': 0.32000000000000006, 'epoch': 80.0}
+{'loss': 0.6143, 'grad_norm': 0.042113084346055984, 'learning_rate': 0.35200000000000004, 'epoch': 88.0}
+{'loss': 0.8102, 'grad_norm': 0.045970283448696136, 'learning_rate': 0.384, 'epoch': 96.0}
+{'loss': 1.0396, 'grad_norm': 0.049606382846832275, 'learning_rate': 0.41600000000000004, 'epoch': 104.0}
+{'loss': 1.2843, 'grad_norm': 0.052336595952510834, 'learning_rate': 0.44800000000000006, 'epoch': 112.0}
+{'loss': 1.4578, 'grad_norm': 0.05116214230656624, 'learning_rate': 0.48, 'epoch': 120.0}
+{'loss': 1.3314, 'grad_norm': 0.04665522277355194, 'learning_rate': 0.512, 'epoch': 128.0}
+{'eval_accuracy': 0.82, 'eval_kl_loss': 0.017692409455776215, 'eval_reg_edge_loss': 1.0998088121414185, 'eval_reg_layer_loss': 0.0, 'eval_loss': 1.1175013780593872, 'eval_model_edge_sparsity': 0.024053633213043213, 'eval_model_layer_sparsity': 0.00038880109786987305, 'eval_target_edge_sparsity': 0.050175998359918594, 'eval_target_layer_sparsity': 0.03686400130391121, 'eval_runtime': 7.4254, 'eval_samples_per_second': 26.934, 'eval_steps_per_second': 1.751, 'epoch': 128.0}
+{'loss': 0.6937, 'grad_norm': 0.042285364121198654, 'learning_rate': 0.544, 'epoch': 136.0}
+{'loss': -0.5172, 'grad_norm': 0.05118177831172943, 'learning_rate': 0.576, 'epoch': 144.0}
+{'loss': -1.7755, 'grad_norm': 0.07434656471014023, 'learning_rate': 0.6080000000000001, 'epoch': 152.0}
+{'loss': -2.6382, 'grad_norm': 0.11747411638498306, 'learning_rate': 0.6400000000000001, 'epoch': 160.0}
+{'loss': -1.9807, 'grad_norm': 0.16643644869327545, 'learning_rate': 0.672, 'epoch': 168.0}
+{'loss': 0.3459, 'grad_norm': 0.16597071290016174, 'learning_rate': 0.7040000000000001, 'epoch': 176.0}
+{'loss': 2.4294, 'grad_norm': 0.14913193881511688, 'learning_rate': 0.7360000000000001, 'epoch': 184.0}
+{'loss': 4.06, 'grad_norm': 0.15463273227214813, 'learning_rate': 0.768, 'epoch': 192.0}
+{'eval_accuracy': 0.47, 'eval_kl_loss': 0.2815696597099304, 'eval_reg_edge_loss': 4.659178733825684, 'eval_reg_layer_loss': 0.0, 'eval_loss': 4.9407477378845215, 'eval_model_edge_sparsity': 0.20890605449676514, 'eval_model_layer_sparsity': 0.09235137701034546, 'eval_target_edge_sparsity': 0.07526399940252304, 'eval_target_layer_sparsity': 0.055296000093221664, 'eval_runtime': 7.4219, 'eval_samples_per_second': 26.947, 'eval_steps_per_second': 1.752, 'epoch': 192.0}
+{'loss': 5.3914, 'grad_norm': 0.14894802868366241, 'learning_rate': 0.8, 'epoch': 200.0}
+{'loss': 6.4096, 'grad_norm': 0.17497596144676208, 'learning_rate': 0.7977142857142857, 'epoch': 208.0}
+{'loss': 6.876, 'grad_norm': 0.1275736689567566, 'learning_rate': 0.7954285714285715, 'epoch': 216.0}
+{'loss': 7.0172, 'grad_norm': 0.12066821753978729, 'learning_rate': 0.7931428571428571, 'epoch': 224.0}
+{'loss': 6.8575, 'grad_norm': 0.1079593375325203, 'learning_rate': 0.7908571428571429, 'epoch': 232.0}
+{'loss': 6.3781, 'grad_norm': 0.09952419251203537, 'learning_rate': 0.7885714285714287, 'epoch': 240.0}
+{'loss': 5.5873, 'grad_norm': 0.08860079944133759, 'learning_rate': 0.7862857142857144, 'epoch': 248.0}
+{'loss': 4.5168, 'grad_norm': 0.07926973700523376, 'learning_rate': 0.784, 'epoch': 256.0}
+{'eval_accuracy': 0.63, 'eval_kl_loss': 0.17633065581321716, 'eval_reg_edge_loss': 3.9428787231445312, 'eval_reg_layer_loss': 0.0, 'eval_loss': 4.1192097663879395, 'eval_model_edge_sparsity': 0.1542198657989502, 'eval_model_layer_sparsity': 0.12793654203414917, 'eval_target_edge_sparsity': 0.10035199671983719, 'eval_target_layer_sparsity': 0.07372800260782242, 'eval_runtime': 7.427, 'eval_samples_per_second': 26.929, 'eval_steps_per_second': 1.75, 'epoch': 256.0}
+{'loss': 3.2045, 'grad_norm': 0.07244812697172165, 'learning_rate': 0.7817142857142857, 'epoch': 264.0}
+{'loss': 1.7355, 'grad_norm': 0.06853322684764862, 'learning_rate': 0.7794285714285715, 'epoch': 272.0}
+{'loss': 0.3248, 'grad_norm': 0.059669528156518936, 'learning_rate': 0.7771428571428571, 'epoch': 280.0}
+{'loss': -0.9091, 'grad_norm': 0.07008833438158035, 'learning_rate': 0.7748571428571429, 'epoch': 288.0}
+{'loss': -1.9575, 'grad_norm': 0.09197548776865005, 'learning_rate': 0.7725714285714287, 'epoch': 296.0}
+{'loss': -2.6858, 'grad_norm': 0.1018420085310936, 'learning_rate': 0.7702857142857144, 'epoch': 304.0}
+{'loss': -3.0065, 'grad_norm': 0.09658385813236237, 'learning_rate': 0.768, 'epoch': 312.0}
+{'loss': -2.8749, 'grad_norm': 0.10305527597665787, 'learning_rate': 0.7657142857142858, 'epoch': 320.0}
+{'eval_accuracy': 0.715, 'eval_kl_loss': 0.07410728931427002, 'eval_reg_edge_loss': -2.6578123569488525, 'eval_reg_layer_loss': 0.0, 'eval_loss': -2.583704710006714, 'eval_model_edge_sparsity': 0.031627357006073, 'eval_model_layer_sparsity': 0.13035333156585693, 'eval_target_edge_sparsity': 0.12544000148773193, 'eval_target_layer_sparsity': 0.09216000139713287, 'eval_runtime': 7.4276, 'eval_samples_per_second': 26.926, 'eval_steps_per_second': 1.75, 'epoch': 320.0}
+{'loss': -2.3453, 'grad_norm': 0.11143728345632553, 'learning_rate': 0.7634285714285715, 'epoch': 328.0}
+{'loss': -0.8244, 'grad_norm': 0.14410322904586792, 'learning_rate': 0.7611428571428571, 'epoch': 336.0}
+{'loss': 0.2039, 'grad_norm': 0.12363974750041962, 'learning_rate': 0.7588571428571429, 'epoch': 344.0}
+{'loss': 0.4025, 'grad_norm': 0.11257808655500412, 'learning_rate': 0.7565714285714287, 'epoch': 352.0}
+{'loss': 0.5564, 'grad_norm': 0.08537820726633072, 'learning_rate': 0.7542857142857143, 'epoch': 360.0}
+{'loss': 0.2654, 'grad_norm': 0.05718478932976723, 'learning_rate': 0.752, 'epoch': 368.0}
+{'loss': -0.1746, 'grad_norm': 0.08206072449684143, 'learning_rate': 0.7497142857142858, 'epoch': 376.0}
+{'loss': 0.5959, 'grad_norm': 0.09604503214359283, 'learning_rate': 0.7474285714285714, 'epoch': 384.0}
+{'eval_accuracy': 0.56, 'eval_kl_loss': 0.238077312707901, 'eval_reg_edge_loss': -0.14595936238765717, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.09211795032024384, 'eval_model_edge_sparsity': 0.22760146856307983, 'eval_model_layer_sparsity': 0.16793721914291382, 'eval_target_edge_sparsity': 0.15052799880504608, 'eval_target_layer_sparsity': 0.11059200018644333, 'eval_runtime': 7.4375, 'eval_samples_per_second': 26.891, 'eval_steps_per_second': 1.748, 'epoch': 384.0}
+{'loss': 0.062, 'grad_norm': 0.09701457619667053, 'learning_rate': 0.7451428571428571, 'epoch': 392.0}
+{'loss': 0.2603, 'grad_norm': 0.06726868450641632, 'learning_rate': 0.7428571428571429, 'epoch': 400.0}
+{'loss': 0.3997, 'grad_norm': 0.14272309839725494, 'learning_rate': 0.7405714285714287, 'epoch': 408.0}
+{'loss': 0.4174, 'grad_norm': 0.0536094568669796, 'learning_rate': 0.7382857142857143, 'epoch': 416.0}
+{'loss': 0.415, 'grad_norm': 0.04258951544761658, 'learning_rate': 0.7360000000000001, 'epoch': 424.0}
+{'loss': 0.3385, 'grad_norm': 0.039288245141506195, 'learning_rate': 0.7337142857142858, 'epoch': 432.0}
+{'loss': 0.2299, 'grad_norm': 0.046140652149915695, 'learning_rate': 0.7314285714285714, 'epoch': 440.0}
+{'loss': 0.0989, 'grad_norm': 0.03529135510325432, 'learning_rate': 0.7291428571428572, 'epoch': 448.0}
+{'eval_accuracy': 0.645, 'eval_kl_loss': 0.20460589230060577, 'eval_reg_edge_loss': -0.04721885919570923, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.15738701820373535, 'eval_model_edge_sparsity': 0.17214202880859375, 'eval_model_layer_sparsity': 0.16533613204956055, 'eval_target_edge_sparsity': 0.17561599612236023, 'eval_target_layer_sparsity': 0.12902399897575378, 'eval_runtime': 7.4301, 'eval_samples_per_second': 26.917, 'eval_steps_per_second': 1.75, 'epoch': 448.0}
+{'loss': -0.007, 'grad_norm': 0.039956048130989075, 'learning_rate': 0.7268571428571429, 'epoch': 456.0}
+{'loss': -0.0871, 'grad_norm': 0.04364508390426636, 'learning_rate': 0.7245714285714286, 'epoch': 464.0}
+{'loss': -0.1738, 'grad_norm': 0.048007622361183167, 'learning_rate': 0.7222857142857143, 'epoch': 472.0}
+{'loss': -0.1829, 'grad_norm': 0.047955963760614395, 'learning_rate': 0.7200000000000001, 'epoch': 480.0}
+{'loss': -0.1289, 'grad_norm': 0.05746191367506981, 'learning_rate': 0.7177142857142857, 'epoch': 488.0}
+{'loss': 0.0603, 'grad_norm': 0.05278940126299858, 'learning_rate': 0.7154285714285714, 'epoch': 496.0}
+{'loss': 0.1847, 'grad_norm': 0.05987950786948204, 'learning_rate': 0.7131428571428572, 'epoch': 504.0}
+{'loss': 0.2549, 'grad_norm': 0.03477931767702103, 'learning_rate': 0.7108571428571429, 'epoch': 512.0}
+{'eval_accuracy': 0.625, 'eval_kl_loss': 0.21689783036708832, 'eval_reg_edge_loss': 0.16273127496242523, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.37962907552719116, 'eval_model_edge_sparsity': 0.17485159635543823, 'eval_model_layer_sparsity': 0.17081421613693237, 'eval_target_edge_sparsity': 0.20070399343967438, 'eval_target_layer_sparsity': 0.14745600521564484, 'eval_runtime': 7.4326, 'eval_samples_per_second': 26.908, 'eval_steps_per_second': 1.749, 'epoch': 512.0}
+{'loss': 0.1542, 'grad_norm': 0.08486426621675491, 'learning_rate': 0.7085714285714286, 'epoch': 520.0}
+{'loss': -0.1568, 'grad_norm': 0.07111380249261856, 'learning_rate': 0.7062857142857144, 'epoch': 528.0}
+{'loss': -0.1096, 'grad_norm': 0.10325106978416443, 'learning_rate': 0.7040000000000001, 'epoch': 536.0}
+{'loss': 0.2982, 'grad_norm': 0.0777207612991333, 'learning_rate': 0.7017142857142857, 'epoch': 544.0}
+{'loss': 0.433, 'grad_norm': 0.049055065959692, 'learning_rate': 0.6994285714285715, 'epoch': 552.0}
+{'loss': 0.2024, 'grad_norm': 0.030972089618444443, 'learning_rate': 0.6971428571428572, 'epoch': 560.0}
+{'loss': -0.1447, 'grad_norm': 0.049871496856212616, 'learning_rate': 0.6948571428571428, 'epoch': 568.0}
+{'loss': -0.3679, 'grad_norm': 0.07298070192337036, 'learning_rate': 0.6925714285714286, 'epoch': 576.0}
+{'eval_accuracy': 0.555, 'eval_kl_loss': 0.2687978446483612, 'eval_reg_edge_loss': -0.4470663070678711, 'eval_reg_layer_loss': 0.0, 'eval_loss': -0.1782684624195099, 'eval_model_edge_sparsity': 0.16901379823684692, 'eval_model_layer_sparsity': 0.208937406539917, 'eval_target_edge_sparsity': 0.22579200565814972, 'eval_target_layer_sparsity': 0.1658879965543747, 'eval_runtime': 7.4554, 'eval_samples_per_second': 26.826, 'eval_steps_per_second': 1.744, 'epoch': 576.0}
+{'loss': 0.7539, 'grad_norm': 0.08390223234891891, 'learning_rate': 0.6902857142857144, 'epoch': 584.0}
+{'loss': 0.022, 'grad_norm': 0.10019399225711823, 'learning_rate': 0.6880000000000001, 'epoch': 592.0}
+{'loss': 0.3327, 'grad_norm': 0.08215492218732834, 'learning_rate': 0.6857142857142857, 'epoch': 600.0}
+{'loss': 0.5474, 'grad_norm': 0.050335951149463654, 'learning_rate': 0.6834285714285715, 'epoch': 608.0}
+{'loss': 0.1525, 'grad_norm': 0.05740668624639511, 'learning_rate': 0.6811428571428572, 'epoch': 616.0}
+{'loss': -0.4928, 'grad_norm': 0.09347732365131378, 'learning_rate': 0.6788571428571428, 'epoch': 624.0}
+{'loss': -0.3901, 'grad_norm': 0.12940481305122375, 'learning_rate': 0.6765714285714286, 'epoch': 632.0}
+{'loss': 0.4048, 'grad_norm': 0.10970160365104675, 'learning_rate': 0.6742857142857144, 'epoch': 640.0}
+{'eval_accuracy': 0.48, 'eval_kl_loss': 0.4014293849468231, 'eval_reg_edge_loss': 0.7027500867843628, 'eval_reg_layer_loss': 0.0, 'eval_loss': 1.1041795015335083, 'eval_model_edge_sparsity': 0.35243964195251465, 'eval_model_layer_sparsity': 0.18678271770477295, 'eval_target_edge_sparsity': 0.25088000297546387, 'eval_target_layer_sparsity': 0.18432000279426575, 'eval_runtime': 7.445, 'eval_samples_per_second': 26.864, 'eval_steps_per_second': 1.746, 'epoch': 640.0}
+{'loss': 0.8921, 'grad_norm': 0.07268499583005905, 'learning_rate': 0.672, 'epoch': 648.0}
+{'loss': 0.8569, 'grad_norm': 0.04678685963153839, 'learning_rate': 0.6697142857142858, 'epoch': 656.0}
+{'loss': 0.4955, 'grad_norm': 0.04940425604581833, 'learning_rate': 0.6674285714285715, 'epoch': 664.0}
+{'loss': 0.0104, 'grad_norm': 0.02851966954767704, 'learning_rate': 0.6651428571428571, 'epoch': 672.0}
+{'loss': -0.3535, 'grad_norm': 0.04203468933701515, 'learning_rate': 0.6628571428571429, 'epoch': 680.0}
+{'loss': -0.5912, 'grad_norm': 0.11304562538862228, 'learning_rate': 0.6605714285714286, 'epoch': 688.0}
+{'loss': -0.5893, 'grad_norm': 0.06893586367368698, 'learning_rate': 0.6582857142857144, 'epoch': 696.0}
+{'loss': -0.3866, 'grad_norm': 0.08127611875534058, 'learning_rate': 0.656, 'epoch': 704.0}
+{'eval_accuracy': 0.57, 'eval_kl_loss': 0.2622913718223572, 'eval_reg_edge_loss': -0.2369072437286377, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.025384128093719482, 'eval_model_edge_sparsity': 0.19700151681900024, 'eval_model_layer_sparsity': 0.2006385326385498, 'eval_target_edge_sparsity': 0.2759679853916168, 'eval_target_layer_sparsity': 0.2027519941329956, 'eval_runtime': 7.4366, 'eval_samples_per_second': 26.894, 'eval_steps_per_second': 1.748, 'epoch': 704.0}
+{'loss': 0.1693, 'grad_norm': 3.8828928470611572, 'learning_rate': 0.6537142857142858, 'epoch': 712.0}
+{'loss': 0.4936, 'grad_norm': 0.1263008564710617, 'learning_rate': 0.6514285714285715, 'epoch': 720.0}
+{'loss': 0.6845, 'grad_norm': 0.051005419343709946, 'learning_rate': 0.6491428571428571, 'epoch': 728.0}
+{'loss': 0.3845, 'grad_norm': 0.014956732280552387, 'learning_rate': 0.6468571428571429, 'epoch': 736.0}
+{'loss': -0.2338, 'grad_norm': 0.050303537398576736, 'learning_rate': 0.6445714285714286, 'epoch': 744.0}
+{'loss': -0.5624, 'grad_norm': 0.09118185937404633, 'learning_rate': 0.6422857142857143, 'epoch': 752.0}
+{'loss': -0.2596, 'grad_norm': 0.10973069816827774, 'learning_rate': 0.6400000000000001, 'epoch': 760.0}
+{'loss': 0.3552, 'grad_norm': 0.09047430753707886, 'learning_rate': 0.6377142857142858, 'epoch': 768.0}
+{'eval_accuracy': 0.5, 'eval_kl_loss': 0.36531031131744385, 'eval_reg_edge_loss': 0.5082153081893921, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.8735256195068359, 'eval_model_edge_sparsity': 0.38738173246383667, 'eval_model_layer_sparsity': 0.21266764402389526, 'eval_target_edge_sparsity': 0.30105599761009216, 'eval_target_layer_sparsity': 0.22118400037288666, 'eval_runtime': 7.4447, 'eval_samples_per_second': 26.865, 'eval_steps_per_second': 1.746, 'epoch': 768.0}
+{'loss': 0.6925, 'grad_norm': 0.06957249343395233, 'learning_rate': 0.6354285714285715, 'epoch': 776.0}
+{'loss': 0.9996, 'grad_norm': 0.0382438600063324, 'learning_rate': 0.6331428571428572, 'epoch': 784.0}
+{'loss': 0.3413, 'grad_norm': 0.0233494620770216, 'learning_rate': 0.6308571428571429, 'epoch': 792.0}
+{'loss': -0.0818, 'grad_norm': 0.025166507810354233, 'learning_rate': 0.6285714285714286, 'epoch': 800.0}
+{'loss': -0.3846, 'grad_norm': 0.051288459450006485, 'learning_rate': 0.6262857142857143, 'epoch': 808.0}
+{'loss': -0.4378, 'grad_norm': 0.11278598010540009, 'learning_rate': 0.6240000000000001, 'epoch': 816.0}
+{'loss': -0.2712, 'grad_norm': 0.09415881335735321, 'learning_rate': 0.6217142857142858, 'epoch': 824.0}
+{'loss': 0.1041, 'grad_norm': 0.0827215313911438, 'learning_rate': 0.6194285714285714, 'epoch': 832.0}
+{'eval_accuracy': 0.57, 'eval_kl_loss': 0.2842617630958557, 'eval_reg_edge_loss': 0.22318622469902039, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.5074479579925537, 'eval_model_edge_sparsity': 0.2502465844154358, 'eval_model_layer_sparsity': 0.21760892868041992, 'eval_target_edge_sparsity': 0.3261440098285675, 'eval_target_layer_sparsity': 0.2396160066127777, 'eval_runtime': 7.4363, 'eval_samples_per_second': 26.895, 'eval_steps_per_second': 1.748, 'epoch': 832.0}
+{'loss': 0.8656, 'grad_norm': 0.07270820438861847, 'learning_rate': 0.6171428571428572, 'epoch': 840.0}
+{'loss': 0.5684, 'grad_norm': 0.050319064408540726, 'learning_rate': 0.6148571428571429, 'epoch': 848.0}
+{'loss': 0.2373, 'grad_norm': 0.03162010386586189, 'learning_rate': 0.6125714285714285, 'epoch': 856.0}
+{'loss': -0.2458, 'grad_norm': 0.06027691066265106, 'learning_rate': 0.6102857142857143, 'epoch': 864.0}
+{'loss': -0.3718, 'grad_norm': 0.107546366751194, 'learning_rate': 0.6080000000000001, 'epoch': 872.0}
+{'loss': -0.0615, 'grad_norm': 0.09463708847761154, 'learning_rate': 0.6057142857142858, 'epoch': 880.0}
+{'loss': 0.3416, 'grad_norm': 0.09299752861261368, 'learning_rate': 0.6034285714285715, 'epoch': 888.0}
+{'loss': 0.6586, 'grad_norm': 0.0539093054831028, 'learning_rate': 0.6011428571428572, 'epoch': 896.0}
+{'eval_accuracy': 0.57, 'eval_kl_loss': 0.3723157048225403, 'eval_reg_edge_loss': 0.38956403732299805, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.7618796825408936, 'eval_model_edge_sparsity': 0.3935902714729309, 'eval_model_layer_sparsity': 0.2299102544784546, 'eval_target_edge_sparsity': 0.35123199224472046, 'eval_target_layer_sparsity': 0.25804799795150757, 'eval_runtime': 7.4419, 'eval_samples_per_second': 26.875, 'eval_steps_per_second': 1.747, 'epoch': 896.0}
+{'loss': 0.3671, 'grad_norm': 0.04335358738899231, 'learning_rate': 0.5988571428571429, 'epoch': 904.0}
+{'loss': 0.0832, 'grad_norm': 0.043778397142887115, 'learning_rate': 0.5965714285714285, 'epoch': 912.0}
+{'loss': -0.2293, 'grad_norm': 0.06921885907649994, 'learning_rate': 0.5942857142857143, 'epoch': 920.0}
+{'loss': -0.3071, 'grad_norm': 0.0786912813782692, 'learning_rate': 0.592, 'epoch': 928.0}
+{'loss': -0.1089, 'grad_norm': 0.08670096099376678, 'learning_rate': 0.5897142857142857, 'epoch': 936.0}
+{'loss': 0.89, 'grad_norm': 0.08161681145429611, 'learning_rate': 0.5874285714285715, 'epoch': 944.0}
+{'loss': 0.4794, 'grad_norm': 0.07660508155822754, 'learning_rate': 0.5851428571428572, 'epoch': 952.0}
+{'loss': 0.3981, 'grad_norm': 0.12618008255958557, 'learning_rate': 0.5828571428571429, 'epoch': 960.0}
+{'eval_accuracy': 0.515, 'eval_kl_loss': 0.38895782828330994, 'eval_reg_edge_loss': 0.056621380150318146, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.4455791711807251, 'eval_model_edge_sparsity': 0.37033671140670776, 'eval_model_layer_sparsity': 0.23731327056884766, 'eval_target_edge_sparsity': 0.3763200044631958, 'eval_target_layer_sparsity': 0.2764799892902374, 'eval_runtime': 7.4371, 'eval_samples_per_second': 26.892, 'eval_steps_per_second': 1.748, 'epoch': 960.0}
+{'loss': -0.0406, 'grad_norm': 0.06540414690971375, 'learning_rate': 0.5805714285714286, 'epoch': 968.0}
+{'loss': -0.2905, 'grad_norm': 0.09275736659765244, 'learning_rate': 0.5782857142857143, 'epoch': 976.0}
+{'loss': -0.1507, 'grad_norm': 0.0998690277338028, 'learning_rate': 0.576, 'epoch': 984.0}
+{'loss': 0.2049, 'grad_norm': 0.09776555746793747, 'learning_rate': 0.5737142857142857, 'epoch': 992.0}
+{'loss': 0.3832, 'grad_norm': 0.08459875732660294, 'learning_rate': 0.5714285714285715, 'epoch': 1000.0}
+{'loss': 0.3406, 'grad_norm': 0.08152546733617783, 'learning_rate': 0.5691428571428572, 'epoch': 1008.0}
+{'loss': 0.0531, 'grad_norm': 0.07768983393907547, 'learning_rate': 0.5668571428571428, 'epoch': 1016.0}
+{'loss': -0.1856, 'grad_norm': 0.08971347659826279, 'learning_rate': 0.5645714285714286, 'epoch': 1024.0}
+{'eval_accuracy': 0.51, 'eval_kl_loss': 0.3547300100326538, 'eval_reg_edge_loss': -0.31244391202926636, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.04228609427809715, 'eval_model_edge_sparsity': 0.3553202152252197, 'eval_model_layer_sparsity': 0.22334223985671997, 'eval_target_edge_sparsity': 0.40140798687934875, 'eval_target_layer_sparsity': 0.2949120104312897, 'eval_runtime': 7.4548, 'eval_samples_per_second': 26.828, 'eval_steps_per_second': 1.744, 'epoch': 1024.0}
+{'loss': 0.096, 'grad_norm': 0.08979915827512741, 'learning_rate': 0.5622857142857143, 'epoch': 1032.0}
+{'loss': -0.032, 'grad_norm': 0.09308546036481857, 'learning_rate': 0.5599999999999999, 'epoch': 1040.0}
+{'loss': 0.247, 'grad_norm': 0.09261991083621979, 'learning_rate': 0.5577142857142857, 'epoch': 1048.0}
+{'loss': 0.4005, 'grad_norm': 0.06694421917200089, 'learning_rate': 0.5554285714285715, 'epoch': 1056.0}
+{'loss': 0.2457, 'grad_norm': 0.06734691560268402, 'learning_rate': 0.5531428571428572, 'epoch': 1064.0}
+{'loss': -0.0919, 'grad_norm': 0.08816905319690704, 'learning_rate': 0.5508571428571429, 'epoch': 1072.0}
+{'loss': -0.2428, 'grad_norm': 0.10926619172096252, 'learning_rate': 0.5485714285714286, 'epoch': 1080.0}
+{'loss': -0.0326, 'grad_norm': 0.1666216105222702, 'learning_rate': 0.5462857142857143, 'epoch': 1088.0}
+{'eval_accuracy': 0.445, 'eval_kl_loss': 0.4468373656272888, 'eval_reg_edge_loss': 0.07220520079135895, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.5190425515174866, 'eval_model_edge_sparsity': 0.5075660943984985, 'eval_model_layer_sparsity': 0.2219787836074829, 'eval_target_edge_sparsity': 0.4264959990978241, 'eval_target_layer_sparsity': 0.31334400177001953, 'eval_runtime': 7.4356, 'eval_samples_per_second': 26.898, 'eval_steps_per_second': 1.748, 'epoch': 1088.0}
+{'loss': 0.2493, 'grad_norm': 0.11647400259971619, 'learning_rate': 0.544, 'epoch': 1096.0}
+{'loss': 0.3485, 'grad_norm': 0.10437493771314621, 'learning_rate': 0.5417142857142857, 'epoch': 1104.0}
+{'loss': 0.1708, 'grad_norm': 0.10053358227014542, 'learning_rate': 0.5394285714285715, 'epoch': 1112.0}
+{'loss': -0.0332, 'grad_norm': 0.09072139114141464, 'learning_rate': 0.5371428571428571, 'epoch': 1120.0}
+{'loss': -0.1783, 'grad_norm': 0.1257762759923935, 'learning_rate': 0.5348571428571429, 'epoch': 1128.0}
+{'loss': -0.0535, 'grad_norm': 0.1297183334827423, 'learning_rate': 0.5325714285714286, 'epoch': 1136.0}
+{'loss': 0.5662, 'grad_norm': 0.11943046003580093, 'learning_rate': 0.5302857142857142, 'epoch': 1144.0}
+{'loss': 0.3348, 'grad_norm': 0.11254698038101196, 'learning_rate': 0.528, 'epoch': 1152.0}
+{'eval_accuracy': 0.435, 'eval_kl_loss': 0.39751288294792175, 'eval_reg_edge_loss': 0.267628014087677, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.6651408672332764, 'eval_model_edge_sparsity': 0.40959078073501587, 'eval_model_layer_sparsity': 0.23061174154281616, 'eval_target_edge_sparsity': 0.45158401131629944, 'eval_target_layer_sparsity': 0.3317759931087494, 'eval_runtime': 7.443, 'eval_samples_per_second': 26.871, 'eval_steps_per_second': 1.747, 'epoch': 1152.0}
+{'loss': 0.2614, 'grad_norm': 0.09980043023824692, 'learning_rate': 0.5257142857142857, 'epoch': 1160.0}
+{'loss': -0.0257, 'grad_norm': 0.1311517208814621, 'learning_rate': 0.5234285714285715, 'epoch': 1168.0}
+{'loss': 0.5363, 'grad_norm': 0.12357541918754578, 'learning_rate': 0.5211428571428572, 'epoch': 1176.0}
+{'loss': -0.097, 'grad_norm': 0.16580937802791595, 'learning_rate': 0.5188571428571429, 'epoch': 1184.0}
+{'loss': 0.1445, 'grad_norm': 0.13117048144340515, 'learning_rate': 0.5165714285714286, 'epoch': 1192.0}
+{'loss': 0.2704, 'grad_norm': 0.1350625455379486, 'learning_rate': 0.5142857142857143, 'epoch': 1200.0}
+{'loss': 0.1921, 'grad_norm': 0.13294710218906403, 'learning_rate': 0.512, 'epoch': 1208.0}
+{'loss': -0.0036, 'grad_norm': 0.1394835263490677, 'learning_rate': 0.5097142857142857, 'epoch': 1216.0}
+{'eval_accuracy': 0.445, 'eval_kl_loss': 0.35848966240882874, 'eval_reg_edge_loss': -0.14163757860660553, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.21685205399990082, 'eval_model_edge_sparsity': 0.4525163769721985, 'eval_model_layer_sparsity': 0.2138679027557373, 'eval_target_edge_sparsity': 0.4766719937324524, 'eval_target_layer_sparsity': 0.35020801424980164, 'eval_runtime': 7.4348, 'eval_samples_per_second': 26.901, 'eval_steps_per_second': 1.749, 'epoch': 1216.0}
+{'loss': -0.134, 'grad_norm': 0.15361836552619934, 'learning_rate': 0.5074285714285715, 'epoch': 1224.0}
+{'loss': -0.0359, 'grad_norm': 0.17203153669834137, 'learning_rate': 0.5051428571428572, 'epoch': 1232.0}
+{'loss': 0.1806, 'grad_norm': 0.15008075535297394, 'learning_rate': 0.5028571428571429, 'epoch': 1240.0}
+{'loss': 0.299, 'grad_norm': 0.1592576652765274, 'learning_rate': 0.5005714285714286, 'epoch': 1248.0}
+{'loss': 0.2051, 'grad_norm': 0.15453866124153137, 'learning_rate': 0.49828571428571433, 'epoch': 1256.0}
+{'loss': -0.0229, 'grad_norm': 0.16594615578651428, 'learning_rate': 0.496, 'epoch': 1264.0}
+{'loss': -0.183, 'grad_norm': 0.17535221576690674, 'learning_rate': 0.4937142857142857, 'epoch': 1272.0}
+{'loss': -0.0305, 'grad_norm': 0.16708795726299286, 'learning_rate': 0.4914285714285715, 'epoch': 1280.0}
+{'eval_accuracy': 0.455, 'eval_kl_loss': 0.44666627049446106, 'eval_reg_edge_loss': 0.03937988728284836, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.48604616522789, 'eval_model_edge_sparsity': 0.5785874128341675, 'eval_model_layer_sparsity': 0.20863449573516846, 'eval_target_edge_sparsity': 0.5017600059509277, 'eval_target_layer_sparsity': 0.3686400055885315, 'eval_runtime': 7.4471, 'eval_samples_per_second': 26.856, 'eval_steps_per_second': 1.746, 'epoch': 1280.0}
+{'loss': 0.1795, 'grad_norm': 0.17912928760051727, 'learning_rate': 0.48914285714285716, 'epoch': 1288.0}
+{'loss': 0.2303, 'grad_norm': 0.1675993800163269, 'learning_rate': 0.4868571428571429, 'epoch': 1296.0}
+{'loss': 0.1097, 'grad_norm': 0.17140470445156097, 'learning_rate': 0.48457142857142865, 'epoch': 1304.0}
+{'loss': -0.046, 'grad_norm': 0.1813734769821167, 'learning_rate': 0.4822857142857143, 'epoch': 1312.0}
+{'loss': -0.0931, 'grad_norm': 0.1795007884502411, 'learning_rate': 0.48, 'epoch': 1320.0}
+{'loss': 0.1298, 'grad_norm': 0.18710750341415405, 'learning_rate': 0.47771428571428576, 'epoch': 1328.0}
+{'loss': 0.2444, 'grad_norm': 0.17790132761001587, 'learning_rate': 0.4754285714285715, 'epoch': 1336.0}
+{'loss': 0.2747, 'grad_norm': 0.1601497381925583, 'learning_rate': 0.47314285714285714, 'epoch': 1344.0}
+{'eval_accuracy': 0.425, 'eval_kl_loss': 0.4045808017253876, 'eval_reg_edge_loss': 0.10502241551876068, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.5096032619476318, 'eval_model_edge_sparsity': 0.5095484256744385, 'eval_model_layer_sparsity': 0.21646469831466675, 'eval_target_edge_sparsity': 0.5268480181694031, 'eval_target_layer_sparsity': 0.38707199692726135, 'eval_runtime': 7.4344, 'eval_samples_per_second': 26.902, 'eval_steps_per_second': 1.749, 'epoch': 1344.0}
+{'loss': 0.1128, 'grad_norm': 0.17665323615074158, 'learning_rate': 0.47085714285714286, 'epoch': 1352.0}
+{'loss': -0.1127, 'grad_norm': 0.17491328716278076, 'learning_rate': 0.46857142857142864, 'epoch': 1360.0}
+{'loss': -0.122, 'grad_norm': 0.1784014254808426, 'learning_rate': 0.4662857142857143, 'epoch': 1368.0}
+{'loss': 0.6907, 'grad_norm': 0.19235579669475555, 'learning_rate': 0.46399999999999997, 'epoch': 1376.0}
+{'loss': 0.2155, 'grad_norm': 0.18309412896633148, 'learning_rate': 0.46171428571428574, 'epoch': 1384.0}
+{'loss': 0.207, 'grad_norm': 0.1825382113456726, 'learning_rate': 0.45942857142857146, 'epoch': 1392.0}
+{'loss': 0.0756, 'grad_norm': 0.1825704425573349, 'learning_rate': 0.45714285714285713, 'epoch': 1400.0}
+{'loss': -0.0528, 'grad_norm': 0.199927419424057, 'learning_rate': 0.4548571428571429, 'epoch': 1408.0}
+{'eval_accuracy': 0.43, 'eval_kl_loss': 0.4048507809638977, 'eval_reg_edge_loss': -0.14149177074432373, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.2633589506149292, 'eval_model_edge_sparsity': 0.5134111642837524, 'eval_model_layer_sparsity': 0.22249650955200195, 'eval_target_edge_sparsity': 0.5519359707832336, 'eval_target_layer_sparsity': 0.4055039882659912, 'eval_runtime': 7.4352, 'eval_samples_per_second': 26.899, 'eval_steps_per_second': 1.748, 'epoch': 1408.0}
+{'loss': 0.6345, 'grad_norm': 0.20758189260959625, 'learning_rate': 0.4525714285714286, 'epoch': 1416.0}
+{'loss': 0.138, 'grad_norm': 0.20117352902889252, 'learning_rate': 0.4502857142857143, 'epoch': 1424.0}
+{'loss': 0.2495, 'grad_norm': 0.20087184011936188, 'learning_rate': 0.44800000000000006, 'epoch': 1432.0}
+{'loss': 0.214, 'grad_norm': 0.20209579169750214, 'learning_rate': 0.44571428571428573, 'epoch': 1440.0}
+{'loss': 0.0421, 'grad_norm': 0.20300988852977753, 'learning_rate': 0.44342857142857145, 'epoch': 1448.0}
+{'loss': -0.0939, 'grad_norm': 0.21389475464820862, 'learning_rate': 0.4411428571428571, 'epoch': 1456.0}
+{'loss': -0.0677, 'grad_norm': 0.21761417388916016, 'learning_rate': 0.4388571428571429, 'epoch': 1464.0}
+{'loss': 0.0981, 'grad_norm': 0.36197707056999207, 'learning_rate': 0.4365714285714286, 'epoch': 1472.0}
+{'eval_accuracy': 0.435, 'eval_kl_loss': 0.46453872323036194, 'eval_reg_edge_loss': 0.11817920207977295, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.5827178955078125, 'eval_model_edge_sparsity': 0.6401890516281128, 'eval_model_layer_sparsity': 0.21653532981872559, 'eval_target_edge_sparsity': 0.577023983001709, 'eval_target_layer_sparsity': 0.42393600940704346, 'eval_runtime': 7.4527, 'eval_samples_per_second': 26.836, 'eval_steps_per_second': 1.744, 'epoch': 1472.0}
+{'loss': 0.1915, 'grad_norm': 0.2166777402162552, 'learning_rate': 0.4342857142857143, 'epoch': 1480.0}
+{'loss': 0.1747, 'grad_norm': 0.2043316811323166, 'learning_rate': 0.43200000000000005, 'epoch': 1488.0}
+{'loss': 0.0366, 'grad_norm': 0.19696742296218872, 'learning_rate': 0.4297142857142857, 'epoch': 1496.0}
+{'loss': -0.0887, 'grad_norm': 0.22354336082935333, 'learning_rate': 0.42742857142857144, 'epoch': 1504.0}
+{'loss': -0.0203, 'grad_norm': 0.22886262834072113, 'learning_rate': 0.4251428571428572, 'epoch': 1512.0}
+{'loss': 0.1715, 'grad_norm': 0.2212483286857605, 'learning_rate': 0.4228571428571429, 'epoch': 1520.0}
+{'loss': 0.2475, 'grad_norm': 0.233343705534935, 'learning_rate': 0.4205714285714286, 'epoch': 1528.0}
+{'loss': 0.1953, 'grad_norm': 0.2205604463815689, 'learning_rate': 0.41828571428571437, 'epoch': 1536.0}
+{'eval_accuracy': 0.38, 'eval_kl_loss': 0.5104922652244568, 'eval_reg_edge_loss': 0.01728508248925209, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.5277773141860962, 'eval_model_edge_sparsity': 0.599219799041748, 'eval_model_layer_sparsity': 0.2191142439842224, 'eval_target_edge_sparsity': 0.6021119952201843, 'eval_target_layer_sparsity': 0.4423680007457733, 'eval_runtime': 7.4368, 'eval_samples_per_second': 26.893, 'eval_steps_per_second': 1.748, 'epoch': 1536.0}
+{'loss': 0.0637, 'grad_norm': 0.24168910086154938, 'learning_rate': 0.41600000000000004, 'epoch': 1544.0}
+{'loss': -0.0999, 'grad_norm': 0.2064368575811386, 'learning_rate': 0.4137142857142857, 'epoch': 1552.0}
+{'loss': -0.0966, 'grad_norm': 0.23739789426326752, 'learning_rate': 0.4114285714285714, 'epoch': 1560.0}
+{'loss': 0.8346, 'grad_norm': 0.3541613221168518, 'learning_rate': 0.4091428571428572, 'epoch': 1568.0}
+{'loss': 0.1694, 'grad_norm': 0.23400576412677765, 'learning_rate': 0.40685714285714286, 'epoch': 1576.0}
+{'loss': 0.311, 'grad_norm': 0.24278458952903748, 'learning_rate': 0.4045714285714286, 'epoch': 1584.0}
+{'loss': 0.5739, 'grad_norm': 0.23317866027355194, 'learning_rate': 0.40228571428571436, 'epoch': 1592.0}
+{'loss': -0.053, 'grad_norm': 0.25317618250846863, 'learning_rate': 0.4, 'epoch': 1600.0}
+{'eval_accuracy': 0.38, 'eval_kl_loss': 0.3943917155265808, 'eval_reg_edge_loss': -0.11348500847816467, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.2809067368507385, 'eval_model_edge_sparsity': 0.5952574014663696, 'eval_model_layer_sparsity': 0.22693848609924316, 'eval_target_edge_sparsity': 0.6272000074386597, 'eval_target_layer_sparsity': 0.4607999920845032, 'eval_runtime': 7.4364, 'eval_samples_per_second': 26.895, 'eval_steps_per_second': 1.748, 'epoch': 1600.0}
+{'loss': -0.0365, 'grad_norm': 0.2623453140258789, 'learning_rate': 0.39771428571428574, 'epoch': 1608.0}
+{'loss': 0.106, 'grad_norm': 0.262827068567276, 'learning_rate': 0.39542857142857146, 'epoch': 1616.0}
+{'loss': 0.2077, 'grad_norm': 0.26244425773620605, 'learning_rate': 0.3931428571428572, 'epoch': 1624.0}
+{'loss': 0.1961, 'grad_norm': 0.2535649240016937, 'learning_rate': 0.39085714285714285, 'epoch': 1632.0}
+{'loss': 0.092, 'grad_norm': 0.26128676533699036, 'learning_rate': 0.38857142857142857, 'epoch': 1640.0}
+{'loss': -0.0551, 'grad_norm': 0.25422096252441406, 'learning_rate': 0.38628571428571434, 'epoch': 1648.0}
+{'loss': -0.0899, 'grad_norm': 0.2709169089794159, 'learning_rate': 0.384, 'epoch': 1656.0}
+{'loss': 0.0126, 'grad_norm': 0.2504435181617737, 'learning_rate': 0.38171428571428573, 'epoch': 1664.0}
+{'eval_accuracy': 0.385, 'eval_kl_loss': 0.4686328172683716, 'eval_reg_edge_loss': 0.031323909759521484, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.49995672702789307, 'eval_model_edge_sparsity': 0.7187688946723938, 'eval_model_layer_sparsity': 0.23096126317977905, 'eval_target_edge_sparsity': 0.652288019657135, 'eval_target_layer_sparsity': 0.4792320132255554, 'eval_runtime': 7.4354, 'eval_samples_per_second': 26.898, 'eval_steps_per_second': 1.748, 'epoch': 1664.0}
+{'loss': 0.1249, 'grad_norm': 0.27097469568252563, 'learning_rate': 0.37942857142857145, 'epoch': 1672.0}
+{'loss': 0.1747, 'grad_norm': 0.25712454319000244, 'learning_rate': 0.37714285714285717, 'epoch': 1680.0}
+{'loss': 0.1242, 'grad_norm': 0.2892966866493225, 'learning_rate': 0.3748571428571429, 'epoch': 1688.0}
+{'loss': -0.0091, 'grad_norm': 0.27388694882392883, 'learning_rate': 0.37257142857142855, 'epoch': 1696.0}
+{'loss': -0.0382, 'grad_norm': 0.27027565240859985, 'learning_rate': 0.37028571428571433, 'epoch': 1704.0}
+{'loss': 0.0611, 'grad_norm': 0.273723304271698, 'learning_rate': 0.36800000000000005, 'epoch': 1712.0}
+{'loss': 0.4798, 'grad_norm': 0.2788173258304596, 'learning_rate': 0.3657142857142857, 'epoch': 1720.0}
+{'loss': 0.2123, 'grad_norm': 0.2704794406890869, 'learning_rate': 0.36342857142857143, 'epoch': 1728.0}
+{'eval_accuracy': 0.415, 'eval_kl_loss': 0.38248926401138306, 'eval_reg_edge_loss': 0.07507491111755371, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.45756417512893677, 'eval_model_edge_sparsity': 0.6605712175369263, 'eval_model_layer_sparsity': 0.24031579494476318, 'eval_target_edge_sparsity': 0.6773759722709656, 'eval_target_layer_sparsity': 0.4976640045642853, 'eval_runtime': 7.4516, 'eval_samples_per_second': 26.84, 'eval_steps_per_second': 1.745, 'epoch': 1728.0}
+{'loss': 0.1623, 'grad_norm': 0.26785022020339966, 'learning_rate': 0.36114285714285715, 'epoch': 1736.0}
+{'loss': 0.0371, 'grad_norm': 0.27182021737098694, 'learning_rate': 0.3588571428571429, 'epoch': 1744.0}
+{'loss': -0.0657, 'grad_norm': 0.26825806498527527, 'learning_rate': 0.3565714285714286, 'epoch': 1752.0}
+{'loss': -0.0835, 'grad_norm': 0.28128576278686523, 'learning_rate': 0.3542857142857143, 'epoch': 1760.0}
+{'loss': 0.0287, 'grad_norm': 1.1455413103103638, 'learning_rate': 0.35200000000000004, 'epoch': 1768.0}
+{'loss': 0.1134, 'grad_norm': 0.29958561062812805, 'learning_rate': 0.34971428571428576, 'epoch': 1776.0}
+{'loss': 0.1505, 'grad_norm': 0.29703250527381897, 'learning_rate': 0.3474285714285714, 'epoch': 1784.0}
+{'loss': 0.1034, 'grad_norm': 0.27509117126464844, 'learning_rate': 0.3451428571428572, 'epoch': 1792.0}
+{'eval_accuracy': 0.41, 'eval_kl_loss': 0.3927529752254486, 'eval_reg_edge_loss': 0.06830119341611862, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.46105414628982544, 'eval_model_edge_sparsity': 0.7168642282485962, 'eval_model_layer_sparsity': 0.23622488975524902, 'eval_target_edge_sparsity': 0.7024639844894409, 'eval_target_layer_sparsity': 0.5160959959030151, 'eval_runtime': 7.4338, 'eval_samples_per_second': 26.904, 'eval_steps_per_second': 1.749, 'epoch': 1792.0}
+{'loss': 0.0004, 'grad_norm': 0.305571973323822, 'learning_rate': 0.34285714285714286, 'epoch': 1800.0}
+{'loss': -0.0523, 'grad_norm': 0.2818348705768585, 'learning_rate': 0.3405714285714286, 'epoch': 1808.0}
+{'loss': 0.0323, 'grad_norm': 0.3095780313014984, 'learning_rate': 0.3382857142857143, 'epoch': 1816.0}
+{'loss': 0.1607, 'grad_norm': 0.3212285339832306, 'learning_rate': 0.336, 'epoch': 1824.0}
+{'loss': 0.1909, 'grad_norm': 0.31611010432243347, 'learning_rate': 0.33371428571428574, 'epoch': 1832.0}
+{'loss': 0.1483, 'grad_norm': 0.31349045038223267, 'learning_rate': 0.33142857142857146, 'epoch': 1840.0}
+{'loss': 0.0896, 'grad_norm': 0.321043461561203, 'learning_rate': 0.3291428571428572, 'epoch': 1848.0}
+{'loss': -0.032, 'grad_norm': 0.3267468810081482, 'learning_rate': 0.3268571428571429, 'epoch': 1856.0}
+{'eval_accuracy': 0.38, 'eval_kl_loss': 0.49089252948760986, 'eval_reg_edge_loss': -0.16880658268928528, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.322085976600647, 'eval_model_edge_sparsity': 0.7675408720970154, 'eval_model_layer_sparsity': 0.22628569602966309, 'eval_target_edge_sparsity': 0.7275519967079163, 'eval_target_layer_sparsity': 0.5345280170440674, 'eval_runtime': 7.4338, 'eval_samples_per_second': 26.904, 'eval_steps_per_second': 1.749, 'epoch': 1856.0}
+{'loss': -0.09, 'grad_norm': 0.3222205936908722, 'learning_rate': 0.32457142857142857, 'epoch': 1864.0}
+{'loss': -0.0274, 'grad_norm': 0.3194734454154968, 'learning_rate': 0.3222857142857143, 'epoch': 1872.0}
+{'loss': 0.0724, 'grad_norm': 0.3223874866962433, 'learning_rate': 0.32000000000000006, 'epoch': 1880.0}
+{'loss': 0.6599, 'grad_norm': 0.29493898153305054, 'learning_rate': 0.3177142857142857, 'epoch': 1888.0}
+{'loss': 0.1339, 'grad_norm': 0.3349517583847046, 'learning_rate': 0.31542857142857145, 'epoch': 1896.0}
+{'loss': 0.0913, 'grad_norm': 0.33689379692077637, 'learning_rate': 0.31314285714285717, 'epoch': 1904.0}
+{'loss': -0.0047, 'grad_norm': 0.33591604232788086, 'learning_rate': 0.3108571428571429, 'epoch': 1912.0}
+{'loss': -0.0263, 'grad_norm': 0.3353363275527954, 'learning_rate': 0.3085714285714286, 'epoch': 1920.0}
+{'eval_accuracy': 0.455, 'eval_kl_loss': 0.35514652729034424, 'eval_reg_edge_loss': -0.05664593726396561, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.29850053787231445, 'eval_model_edge_sparsity': 0.7218154072761536, 'eval_model_layer_sparsity': 0.23359274864196777, 'eval_target_edge_sparsity': 0.7526400089263916, 'eval_target_layer_sparsity': 0.5529599785804749, 'eval_runtime': 7.4338, 'eval_samples_per_second': 26.904, 'eval_steps_per_second': 1.749, 'epoch': 1920.0}
+{'loss': 0.0564, 'grad_norm': 0.3293391168117523, 'learning_rate': 0.3062857142857143, 'epoch': 1928.0}
+{'loss': 0.1453, 'grad_norm': 0.33982348442077637, 'learning_rate': 0.30400000000000005, 'epoch': 1936.0}
+{'loss': 0.1719, 'grad_norm': 0.3745916485786438, 'learning_rate': 0.30171428571428577, 'epoch': 1944.0}
+{'loss': 0.1525, 'grad_norm': 0.3337928056716919, 'learning_rate': 0.29942857142857143, 'epoch': 1952.0}
+{'loss': 0.0952, 'grad_norm': 0.3305046558380127, 'learning_rate': 0.29714285714285715, 'epoch': 1960.0}
+{'loss': 0.3761, 'grad_norm': 0.3745555281639099, 'learning_rate': 0.2948571428571429, 'epoch': 1968.0}
+{'loss': -0.0424, 'grad_norm': 0.3652377128601074, 'learning_rate': 0.2925714285714286, 'epoch': 1976.0}
+{'loss': -0.064, 'grad_norm': 0.387383371591568, 'learning_rate': 0.2902857142857143, 'epoch': 1984.0}
+{'eval_accuracy': 0.4, 'eval_kl_loss': 0.4518013000488281, 'eval_reg_edge_loss': -0.09769061952829361, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.3541106879711151, 'eval_model_edge_sparsity': 0.8313709497451782, 'eval_model_layer_sparsity': 0.22154974937438965, 'eval_target_edge_sparsity': 0.7777280211448669, 'eval_target_layer_sparsity': 0.5713919997215271, 'eval_runtime': 7.4342, 'eval_samples_per_second': 26.903, 'eval_steps_per_second': 1.749, 'epoch': 1984.0}
+{'loss': 0.0106, 'grad_norm': 0.3839033544063568, 'learning_rate': 0.288, 'epoch': 1992.0}
+{'loss': 0.0654, 'grad_norm': 0.38348501920700073, 'learning_rate': 0.28571428571428575, 'epoch': 2000.0}
+{'loss': 0.1078, 'grad_norm': 0.3841313421726227, 'learning_rate': 0.2834285714285714, 'epoch': 2008.0}
+{'loss': 0.1954, 'grad_norm': 3.925049304962158, 'learning_rate': 0.28114285714285714, 'epoch': 2016.0}
+{'loss': 0.0673, 'grad_norm': 0.4025208055973053, 'learning_rate': 0.27885714285714286, 'epoch': 2024.0}
+{'loss': 0.0128, 'grad_norm': 0.37149545550346375, 'learning_rate': 0.2765714285714286, 'epoch': 2032.0}
+{'loss': -0.0098, 'grad_norm': 0.37657904624938965, 'learning_rate': 0.2742857142857143, 'epoch': 2040.0}
+{'loss': 0.0354, 'grad_norm': 0.3945559561252594, 'learning_rate': 0.272, 'epoch': 2048.0}
+{'eval_accuracy': 0.44, 'eval_kl_loss': 0.3864361643791199, 'eval_reg_edge_loss': -0.0069086989387869835, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.3795274496078491, 'eval_model_edge_sparsity': 0.7756428718566895, 'eval_model_layer_sparsity': 0.22020715475082397, 'eval_target_edge_sparsity': 0.8028159737586975, 'eval_target_layer_sparsity': 0.5898240208625793, 'eval_runtime': 7.4503, 'eval_samples_per_second': 26.844, 'eval_steps_per_second': 1.745, 'epoch': 2048.0}
+{'loss': 0.1187, 'grad_norm': 0.43163129687309265, 'learning_rate': 0.26971428571428574, 'epoch': 2056.0}
+{'loss': 0.1684, 'grad_norm': 0.40940800309181213, 'learning_rate': 0.26742857142857146, 'epoch': 2064.0}
+{'loss': 0.155, 'grad_norm': 0.4183243215084076, 'learning_rate': 0.2651428571428571, 'epoch': 2072.0}
+{'loss': 0.115, 'grad_norm': 0.3815709352493286, 'learning_rate': 0.26285714285714284, 'epoch': 2080.0}
+{'loss': 0.0504, 'grad_norm': 0.4265475571155548, 'learning_rate': 0.2605714285714286, 'epoch': 2088.0}
+{'loss': 0.5407, 'grad_norm': 0.4133373200893402, 'learning_rate': 0.2582857142857143, 'epoch': 2096.0}
+{'loss': -0.0431, 'grad_norm': 0.4269697070121765, 'learning_rate': 0.256, 'epoch': 2104.0}
+{'loss': -0.0432, 'grad_norm': 0.41353341937065125, 'learning_rate': 0.2537142857142857, 'epoch': 2112.0}
+{'eval_accuracy': 0.37, 'eval_kl_loss': 0.5067644715309143, 'eval_reg_edge_loss': -0.10206843912601471, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.4046960473060608, 'eval_model_edge_sparsity': 0.8742882609367371, 'eval_model_layer_sparsity': 0.21799641847610474, 'eval_target_edge_sparsity': 0.8279039859771729, 'eval_target_layer_sparsity': 0.6082559823989868, 'eval_runtime': 7.4354, 'eval_samples_per_second': 26.898, 'eval_steps_per_second': 1.748, 'epoch': 2112.0}
+{'loss': -0.0172, 'grad_norm': 0.43035101890563965, 'learning_rate': 0.25142857142857145, 'epoch': 2120.0}
+{'loss': 0.0377, 'grad_norm': 0.40415218472480774, 'learning_rate': 0.24914285714285717, 'epoch': 2128.0}
+{'loss': 0.0781, 'grad_norm': 0.4441044330596924, 'learning_rate': 0.24685714285714286, 'epoch': 2136.0}
+{'loss': 0.0967, 'grad_norm': 0.41817349195480347, 'learning_rate': 0.24457142857142858, 'epoch': 2144.0}
+{'loss': 0.0911, 'grad_norm': 0.44563212990760803, 'learning_rate': 0.24228571428571433, 'epoch': 2152.0}
+{'loss': 0.0484, 'grad_norm': 0.43385639786720276, 'learning_rate': 0.24, 'epoch': 2160.0}
+{'loss': 0.0178, 'grad_norm': 0.45775654911994934, 'learning_rate': 0.23771428571428574, 'epoch': 2168.0}
+{'loss': -0.004, 'grad_norm': 0.45532163977622986, 'learning_rate': 0.23542857142857143, 'epoch': 2176.0}
+{'eval_accuracy': 0.345, 'eval_kl_loss': 0.42608165740966797, 'eval_reg_edge_loss': -0.02548118680715561, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.40060049295425415, 'eval_model_edge_sparsity': 0.8400001525878906, 'eval_model_layer_sparsity': 0.2184486985206604, 'eval_target_edge_sparsity': 0.8529919981956482, 'eval_target_layer_sparsity': 0.6266880035400391, 'eval_runtime': 7.4341, 'eval_samples_per_second': 26.903, 'eval_steps_per_second': 1.749, 'epoch': 2176.0}
+{'loss': 0.0209, 'grad_norm': 0.4542624354362488, 'learning_rate': 0.23314285714285715, 'epoch': 2184.0}
+{'loss': 0.092, 'grad_norm': 0.4748463034629822, 'learning_rate': 0.23085714285714287, 'epoch': 2192.0}
+{'loss': 0.1373, 'grad_norm': 0.4475518763065338, 'learning_rate': 0.22857142857142856, 'epoch': 2200.0}
+{'loss': 0.1549, 'grad_norm': 0.4632960855960846, 'learning_rate': 0.2262857142857143, 'epoch': 2208.0}
+{'loss': 0.1512, 'grad_norm': 0.47097012400627136, 'learning_rate': 0.22400000000000003, 'epoch': 2216.0}
+{'loss': 0.1144, 'grad_norm': 0.45024701952934265, 'learning_rate': 0.22171428571428572, 'epoch': 2224.0}
+{'loss': 0.0752, 'grad_norm': 0.49059250950813293, 'learning_rate': 0.21942857142857145, 'epoch': 2232.0}
+{'loss': 0.0339, 'grad_norm': 0.49093374609947205, 'learning_rate': 0.21714285714285714, 'epoch': 2240.0}
+{'eval_accuracy': 0.375, 'eval_kl_loss': 0.49552014470100403, 'eval_reg_edge_loss': -0.10217546671628952, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.39334461092948914, 'eval_model_edge_sparsity': 0.8983826041221619, 'eval_model_layer_sparsity': 0.2163097858428955, 'eval_target_edge_sparsity': 0.8780800104141235, 'eval_target_layer_sparsity': 0.6451200246810913, 'eval_runtime': 7.4335, 'eval_samples_per_second': 26.905, 'eval_steps_per_second': 1.749, 'epoch': 2240.0}
+{'loss': -0.0018, 'grad_norm': 0.47594723105430603, 'learning_rate': 0.21485714285714286, 'epoch': 2248.0}
+{'loss': -0.0248, 'grad_norm': 0.48661482334136963, 'learning_rate': 0.2125714285714286, 'epoch': 2256.0}
+{'loss': -0.0329, 'grad_norm': 0.4788476228713989, 'learning_rate': 0.2102857142857143, 'epoch': 2264.0}
+{'loss': -0.0053, 'grad_norm': 0.48674800992012024, 'learning_rate': 0.20800000000000002, 'epoch': 2272.0}
+{'loss': 0.007, 'grad_norm': 0.4910292625427246, 'learning_rate': 0.2057142857142857, 'epoch': 2280.0}
+{'loss': 0.0235, 'grad_norm': 0.4997086822986603, 'learning_rate': 0.20342857142857143, 'epoch': 2288.0}
+{'loss': 0.0524, 'grad_norm': 0.4843924641609192, 'learning_rate': 0.20114285714285718, 'epoch': 2296.0}
+{'loss': 0.0627, 'grad_norm': 0.5253384113311768, 'learning_rate': 0.19885714285714287, 'epoch': 2304.0}
+{'eval_accuracy': 0.38, 'eval_kl_loss': 0.4988764524459839, 'eval_reg_edge_loss': 0.0045579709112644196, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.503434419631958, 'eval_model_edge_sparsity': 0.9263370633125305, 'eval_model_layer_sparsity': 0.20995813608169556, 'eval_target_edge_sparsity': 0.9031680226325989, 'eval_target_layer_sparsity': 0.6635519862174988, 'eval_runtime': 7.4335, 'eval_samples_per_second': 26.905, 'eval_steps_per_second': 1.749, 'epoch': 2304.0}
+{'loss': 0.054, 'grad_norm': 0.5299174785614014, 'learning_rate': 0.1965714285714286, 'epoch': 2312.0}
+{'loss': 0.0662, 'grad_norm': 0.5083612203598022, 'learning_rate': 0.19428571428571428, 'epoch': 2320.0}
+{'loss': 0.0628, 'grad_norm': 0.5386802554130554, 'learning_rate': 0.192, 'epoch': 2328.0}
+{'loss': 0.0626, 'grad_norm': 0.5328688621520996, 'learning_rate': 0.18971428571428572, 'epoch': 2336.0}
+{'loss': 0.0453, 'grad_norm': 0.5383730530738831, 'learning_rate': 0.18742857142857144, 'epoch': 2344.0}
+{'loss': 1.4014, 'grad_norm': 0.5345498323440552, 'learning_rate': 0.18514285714285716, 'epoch': 2352.0}
+{'loss': 0.0667, 'grad_norm': 0.5426383018493652, 'learning_rate': 0.18285714285714286, 'epoch': 2360.0}
+{'loss': 0.0743, 'grad_norm': 0.5381722450256348, 'learning_rate': 0.18057142857142858, 'epoch': 2368.0}
+{'eval_accuracy': 0.38, 'eval_kl_loss': 0.4760916531085968, 'eval_reg_edge_loss': 0.006572647951543331, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.4826642870903015, 'eval_model_edge_sparsity': 0.9213987588882446, 'eval_model_layer_sparsity': 0.2066461443901062, 'eval_target_edge_sparsity': 0.9282559752464294, 'eval_target_layer_sparsity': 0.681984007358551, 'eval_runtime': 7.4476, 'eval_samples_per_second': 26.854, 'eval_steps_per_second': 1.746, 'epoch': 2368.0}
+{'loss': 0.0977, 'grad_norm': 0.5753459930419922, 'learning_rate': 0.1782857142857143, 'epoch': 2376.0}
+{'loss': 0.7573, 'grad_norm': 0.8098602890968323, 'learning_rate': 0.17600000000000002, 'epoch': 2384.0}
+{'loss': 0.1595, 'grad_norm': 0.5378960371017456, 'learning_rate': 0.1737142857142857, 'epoch': 2392.0}
+{'loss': 0.1652, 'grad_norm': 0.5542948246002197, 'learning_rate': 0.17142857142857143, 'epoch': 2400.0}
+{'loss': 0.1959, 'grad_norm': 0.5721715688705444, 'learning_rate': 0.16914285714285715, 'epoch': 2408.0}
+{'loss': 0.2071, 'grad_norm': 0.5574670433998108, 'learning_rate': 0.16685714285714287, 'epoch': 2416.0}
+{'loss': 0.2134, 'grad_norm': 0.5763047337532043, 'learning_rate': 0.1645714285714286, 'epoch': 2424.0}
+{'loss': 0.2363, 'grad_norm': 0.5310937762260437, 'learning_rate': 0.16228571428571428, 'epoch': 2432.0}
+{'eval_accuracy': 0.37, 'eval_kl_loss': 0.5110483765602112, 'eval_reg_edge_loss': 0.1034780815243721, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.6145263910293579, 'eval_model_edge_sparsity': 0.9385494589805603, 'eval_model_layer_sparsity': 0.20624983310699463, 'eval_target_edge_sparsity': 0.9533439874649048, 'eval_target_layer_sparsity': 0.7004160284996033, 'eval_runtime': 7.4332, 'eval_samples_per_second': 26.906, 'eval_steps_per_second': 1.749, 'epoch': 2432.0}
+{'loss': 0.2474, 'grad_norm': 0.575251579284668, 'learning_rate': 0.16000000000000003, 'epoch': 2440.0}
+{'loss': 0.2714, 'grad_norm': 0.5795583724975586, 'learning_rate': 0.15771428571428572, 'epoch': 2448.0}
+{'loss': 0.291, 'grad_norm': 0.5965660810470581, 'learning_rate': 0.15542857142857144, 'epoch': 2456.0}
+{'loss': 0.3316, 'grad_norm': 0.5831242203712463, 'learning_rate': 0.15314285714285714, 'epoch': 2464.0}
+{'loss': 0.3573, 'grad_norm': 0.6250305771827698, 'learning_rate': 0.15085714285714288, 'epoch': 2472.0}
+{'loss': 0.3923, 'grad_norm': 0.5789604783058167, 'learning_rate': 0.14857142857142858, 'epoch': 2480.0}
+{'loss': 0.4358, 'grad_norm': 0.6148875951766968, 'learning_rate': 0.1462857142857143, 'epoch': 2488.0}
+{'loss': 0.4996, 'grad_norm': 0.5831224322319031, 'learning_rate': 0.144, 'epoch': 2496.0}
+{'eval_accuracy': 0.38, 'eval_kl_loss': 0.5788540244102478, 'eval_reg_edge_loss': 0.34987714886665344, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.9287312030792236, 'eval_model_edge_sparsity': 0.9509357810020447, 'eval_model_layer_sparsity': 0.2053459882736206, 'eval_target_edge_sparsity': 0.9784319996833801, 'eval_target_layer_sparsity': 0.7188479900360107, 'eval_runtime': 7.4287, 'eval_samples_per_second': 26.923, 'eval_steps_per_second': 1.75, 'epoch': 2496.0}
+{'loss': 0.5125, 'grad_norm': 0.5738221406936646, 'learning_rate': 0.1417142857142857, 'epoch': 2504.0}
+{'loss': 0.5471, 'grad_norm': 0.5923464894294739, 'learning_rate': 0.13942857142857143, 'epoch': 2512.0}
+{'loss': 0.5432, 'grad_norm': 0.5994323492050171, 'learning_rate': 0.13714285714285715, 'epoch': 2520.0}
+{'loss': 0.5441, 'grad_norm': 0.597245454788208, 'learning_rate': 0.13485714285714287, 'epoch': 2528.0}
+{'loss': 0.5294, 'grad_norm': 0.5922691822052002, 'learning_rate': 0.13257142857142856, 'epoch': 2536.0}
+{'loss': 0.6997, 'grad_norm': 0.5977141261100769, 'learning_rate': 0.1302857142857143, 'epoch': 2544.0}
+{'loss': 0.5348, 'grad_norm': 0.5837087035179138, 'learning_rate': 0.128, 'epoch': 2552.0}
+{'loss': 0.5185, 'grad_norm': 0.616412341594696, 'learning_rate': 0.12571428571428572, 'epoch': 2560.0}
+{'eval_accuracy': 0.35, 'eval_kl_loss': 0.6848479509353638, 'eval_reg_edge_loss': 0.3528744578361511, 'eval_reg_layer_loss': 0.0, 'eval_loss': 1.0377224683761597, 'eval_model_edge_sparsity': 0.9598362445831299, 'eval_model_layer_sparsity': 0.20337289571762085, 'eval_target_edge_sparsity': 0.9800000190734863, 'eval_target_layer_sparsity': 0.7200000286102295, 'eval_runtime': 7.4304, 'eval_samples_per_second': 26.917, 'eval_steps_per_second': 1.75, 'epoch': 2560.0}
+{'loss': 0.515, 'grad_norm': 0.5991705656051636, 'learning_rate': 0.12342857142857143, 'epoch': 2568.0}
+{'loss': 0.4982, 'grad_norm': 0.572067379951477, 'learning_rate': 0.12114285714285716, 'epoch': 2576.0}
+{'loss': 0.5002, 'grad_norm': 0.6123751997947693, 'learning_rate': 0.11885714285714287, 'epoch': 2584.0}
+{'loss': 0.5512, 'grad_norm': 0.5981122851371765, 'learning_rate': 0.11657142857142858, 'epoch': 2592.0}
+{'loss': 0.4953, 'grad_norm': 0.6445707678794861, 'learning_rate': 0.11428571428571428, 'epoch': 2600.0}
+{'loss': 0.498, 'grad_norm': 0.5730329155921936, 'learning_rate': 0.11200000000000002, 'epoch': 2608.0}
+{'loss': 0.4931, 'grad_norm': 0.5973847508430481, 'learning_rate': 0.10971428571428572, 'epoch': 2616.0}
+{'loss': 0.4732, 'grad_norm': 0.5897650122642517, 'learning_rate': 0.10742857142857143, 'epoch': 2624.0}
+{'eval_accuracy': 0.315, 'eval_kl_loss': 0.7789987325668335, 'eval_reg_edge_loss': 0.2954964339733124, 'eval_reg_layer_loss': 0.0, 'eval_loss': 1.0744950771331787, 'eval_model_edge_sparsity': 0.9652453660964966, 'eval_model_layer_sparsity': 0.20291262865066528, 'eval_target_edge_sparsity': 0.9800000190734863, 'eval_target_layer_sparsity': 0.7200000286102295, 'eval_runtime': 7.4331, 'eval_samples_per_second': 26.907, 'eval_steps_per_second': 1.749, 'epoch': 2624.0}
+{'loss': 0.4581, 'grad_norm': 0.6079800128936768, 'learning_rate': 0.10514285714285715, 'epoch': 2632.0}
+{'loss': 0.4539, 'grad_norm': 0.5986431241035461, 'learning_rate': 0.10285714285714286, 'epoch': 2640.0}
+{'loss': 0.458, 'grad_norm': 0.6018292903900146, 'learning_rate': 0.10057142857142859, 'epoch': 2648.0}
+{'loss': 0.4539, 'grad_norm': 0.6089116334915161, 'learning_rate': 0.0982857142857143, 'epoch': 2656.0}
+{'loss': 0.4553, 'grad_norm': 0.6256591081619263, 'learning_rate': 0.096, 'epoch': 2664.0}
+{'loss': 0.4488, 'grad_norm': 0.6390820145606995, 'learning_rate': 0.09371428571428572, 'epoch': 2672.0}
+{'loss': 0.5422, 'grad_norm': 0.6078001260757446, 'learning_rate': 0.09142857142857143, 'epoch': 2680.0}
+{'loss': 0.4212, 'grad_norm': 0.628810703754425, 'learning_rate': 0.08914285714285715, 'epoch': 2688.0}
+{'eval_accuracy': 0.32, 'eval_kl_loss': 0.7546437382698059, 'eval_reg_edge_loss': 0.24468284845352173, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.9993266463279724, 'eval_model_edge_sparsity': 0.968529462814331, 'eval_model_layer_sparsity': 0.2014087438583374, 'eval_target_edge_sparsity': 0.9800000190734863, 'eval_target_layer_sparsity': 0.7200000286102295, 'eval_runtime': 7.4277, 'eval_samples_per_second': 26.926, 'eval_steps_per_second': 1.75, 'epoch': 2688.0}
+{'loss': 0.4452, 'grad_norm': 0.6297150254249573, 'learning_rate': 0.08685714285714285, 'epoch': 2696.0}
+{'loss': 0.7403, 'grad_norm': 0.6034955978393555, 'learning_rate': 0.08457142857142858, 'epoch': 2704.0}
+{'loss': 0.4032, 'grad_norm': 0.6157113909721375, 'learning_rate': 0.0822857142857143, 'epoch': 2712.0}
+{'loss': 0.3972, 'grad_norm': 0.5960742235183716, 'learning_rate': 0.08000000000000002, 'epoch': 2720.0}
+{'loss': 0.4417, 'grad_norm': 0.5975266695022583, 'learning_rate': 0.07771428571428572, 'epoch': 2728.0}
+{'loss': 0.3939, 'grad_norm': 0.5857380032539368, 'learning_rate': 0.07542857142857144, 'epoch': 2736.0}
+{'loss': 0.3907, 'grad_norm': 0.6633573770523071, 'learning_rate': 0.07314285714285715, 'epoch': 2744.0}
+{'loss': 0.422, 'grad_norm': 0.6237975358963013, 'learning_rate': 0.07085714285714285, 'epoch': 2752.0}
+{'eval_accuracy': 0.35, 'eval_kl_loss': 0.7750317454338074, 'eval_reg_edge_loss': 0.2174662947654724, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.9924980998039246, 'eval_model_edge_sparsity': 0.9701215624809265, 'eval_model_layer_sparsity': 0.20134508609771729, 'eval_target_edge_sparsity': 0.9800000190734863, 'eval_target_layer_sparsity': 0.7200000286102295, 'eval_runtime': 7.4286, 'eval_samples_per_second': 26.923, 'eval_steps_per_second': 1.75, 'epoch': 2752.0}
+{'loss': 0.3908, 'grad_norm': 0.6170712113380432, 'learning_rate': 0.06857142857142857, 'epoch': 2760.0}
+{'loss': 0.384, 'grad_norm': 0.5922852754592896, 'learning_rate': 0.06628571428571428, 'epoch': 2768.0}
+{'loss': 0.3882, 'grad_norm': 0.617406964302063, 'learning_rate': 0.064, 'epoch': 2776.0}
+{'loss': 0.3795, 'grad_norm': 0.5903735756874084, 'learning_rate': 0.061714285714285715, 'epoch': 2784.0}
+{'loss': 0.3773, 'grad_norm': 0.6087508797645569, 'learning_rate': 0.059428571428571435, 'epoch': 2792.0}
+{'loss': 1.1654, 'grad_norm': 0.5749354958534241, 'learning_rate': 0.05714285714285714, 'epoch': 2800.0}
+{'loss': 0.3871, 'grad_norm': 0.6232325434684753, 'learning_rate': 0.05485714285714286, 'epoch': 2808.0}
+{'loss': 1.1505, 'grad_norm': 0.6231765747070312, 'learning_rate': 0.052571428571428575, 'epoch': 2816.0}
+{'eval_accuracy': 0.37, 'eval_kl_loss': 0.8091703057289124, 'eval_reg_edge_loss': 0.19866697490215302, 'eval_reg_layer_loss': 0.0, 'eval_loss': 1.007837176322937, 'eval_model_edge_sparsity': 0.9711341261863708, 'eval_model_layer_sparsity': 0.20154857635498047, 'eval_target_edge_sparsity': 0.9800000190734863, 'eval_target_layer_sparsity': 0.7200000286102295, 'eval_runtime': 7.4298, 'eval_samples_per_second': 26.919, 'eval_steps_per_second': 1.75, 'epoch': 2816.0}
+{'loss': 0.3755, 'grad_norm': 0.6182063221931458, 'learning_rate': 0.050285714285714295, 'epoch': 2824.0}
+{'loss': 0.4164, 'grad_norm': 0.6388242840766907, 'learning_rate': 0.048, 'epoch': 2832.0}
+{'loss': 0.3715, 'grad_norm': 0.6191803216934204, 'learning_rate': 0.045714285714285714, 'epoch': 2840.0}
+{'loss': 0.4065, 'grad_norm': 0.616409957408905, 'learning_rate': 0.04342857142857143, 'epoch': 2848.0}
+{'loss': 0.3647, 'grad_norm': 0.6118410229682922, 'learning_rate': 0.04114285714285715, 'epoch': 2856.0}
+{'loss': 0.4221, 'grad_norm': 0.5876748561859131, 'learning_rate': 0.03885714285714286, 'epoch': 2864.0}
+{'loss': 0.3804, 'grad_norm': 0.6077117323875427, 'learning_rate': 0.036571428571428574, 'epoch': 2872.0}
+{'loss': 0.3832, 'grad_norm': 0.6220413446426392, 'learning_rate': 0.03428571428571429, 'epoch': 2880.0}
+{'eval_accuracy': 0.38, 'eval_kl_loss': 0.7943277955055237, 'eval_reg_edge_loss': 0.1886044442653656, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.9829322099685669, 'eval_model_edge_sparsity': 0.9716688394546509, 'eval_model_layer_sparsity': 0.200067937374115, 'eval_target_edge_sparsity': 0.9800000190734863, 'eval_target_layer_sparsity': 0.7200000286102295, 'eval_runtime': 7.4274, 'eval_samples_per_second': 26.927, 'eval_steps_per_second': 1.75, 'epoch': 2880.0}
+{'loss': 0.3736, 'grad_norm': 0.6059278845787048, 'learning_rate': 0.032, 'epoch': 2888.0}
+{'loss': 0.3805, 'grad_norm': 0.6135934591293335, 'learning_rate': 0.029714285714285717, 'epoch': 2896.0}
+{'loss': 0.3597, 'grad_norm': 0.5904712677001953, 'learning_rate': 0.02742857142857143, 'epoch': 2904.0}
+{'loss': 1.1601, 'grad_norm': 0.6301617622375488, 'learning_rate': 0.025142857142857147, 'epoch': 2912.0}
+{'loss': 0.3476, 'grad_norm': 0.6114151477813721, 'learning_rate': 0.022857142857142857, 'epoch': 2920.0}
+{'loss': 0.3507, 'grad_norm': 0.6062173843383789, 'learning_rate': 0.020571428571428574, 'epoch': 2928.0}
+{'loss': 0.3514, 'grad_norm': 0.5861608982086182, 'learning_rate': 0.018285714285714287, 'epoch': 2936.0}
+{'loss': 0.3505, 'grad_norm': 0.5879050493240356, 'learning_rate': 0.016, 'epoch': 2944.0}
+{'eval_accuracy': 0.35, 'eval_kl_loss': 0.8142989873886108, 'eval_reg_edge_loss': 0.17569255828857422, 'eval_reg_layer_loss': 0.0, 'eval_loss': 0.9899915456771851, 'eval_model_edge_sparsity': 0.9722761511802673, 'eval_model_layer_sparsity': 0.19895142316818237, 'eval_target_edge_sparsity': 0.9800000190734863, 'eval_target_layer_sparsity': 0.7200000286102295, 'eval_runtime': 7.4476, 'eval_samples_per_second': 26.854, 'eval_steps_per_second': 1.746, 'epoch': 2944.0}
+{'loss': 0.8662, 'grad_norm': 0.6215397119522095, 'learning_rate': 0.013714285714285715, 'epoch': 2952.0}
+{'loss': 0.7576, 'grad_norm': 0.5711995363235474, 'learning_rate': 0.011428571428571429, 'epoch': 2960.0}
+{'loss': 0.3484, 'grad_norm': 0.6345176100730896, 'learning_rate': 0.009142857142857144, 'epoch': 2968.0}
+{'loss': 0.3462, 'grad_norm': 0.6362553238868713, 'learning_rate': 0.006857142857142858, 'epoch': 2976.0}
+{'loss': 0.7353, 'grad_norm': 0.6113885641098022, 'learning_rate': 0.004571428571428572, 'epoch': 2984.0}
+{'loss': 0.4958, 'grad_norm': 4.6380205154418945, 'learning_rate': 0.002285714285714286, 'epoch': 2992.0}
+{'loss': 0.3641, 'grad_norm': 0.6128888130187988, 'learning_rate': 0.0, 'epoch': 3000.0}
+{'train_runtime': 3111.1362, 'train_samples_per_second': 30.857, 'train_steps_per_second': 0.964, 'train_loss': 0.30446947369324817, 'epoch': 3000.0}
+***** train metrics *****
+  epoch                    =     3000.0
+  train_loss               =     0.3045
+  train_runtime            = 0:51:51.13
+  train_samples            =         20
+  train_samples_per_second =     30.857
+  train_steps_per_second   =      0.964
