@@ -113,12 +113,16 @@ def reader_idx_to_name(reader_idx, num_layers, num_heads, num_key_value_heads):
         return f"m{layer_idx}"
 
 def get_mask(log_alpha, training=False, threshold_for_deterministic=None, apply_one=False):
+
+    return torch.ones_like(log_alpha)
     if training:
         mask = sample_z_from_log_alpha(log_alpha)
     else:
         mask = deterministic_z_from_log_alpha(log_alpha, apply_one=apply_one)
         if threshold_for_deterministic is not None:
             mask = (mask > threshold_for_deterministic).to(mask.dtype)
+    print("Model training mode:", model.training)
+    print("Layer 0 training mode:", model.model.layers[0].training)
     return mask
 
 # RMSNORM and ROTARY EMBEDDING (COPIED W SMALL EDITS FROM FLLAMA CODE) -------------------------
@@ -283,8 +287,15 @@ class FQwen2Attention(nn.Module):
             causal_mask = attention_mask[:, :, :, : key_states.shape[-2]]
             attn_weights = attn_weights + causal_mask
 
-        attn_weights = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32).to(query_states.dtype)
+        # attn_weights = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32).to(query_states.dtype)
+        attn_weights = attn_weights.float()
+        attn_weights = attn_weights - attn_weights.max(dim=-1, keepdim=True).values
+        attn_weights = torch.exp(attn_weights)
+        denom = attn_weights.sum(dim=-1, keepdim=True)
+        attn_weights = attn_weights / (denom + 1e-9)
+        attn_weights = attn_weights.to(query_states.dtype)
         attn_weights = nn.functional.dropout(attn_weights, p=self.attention_dropout, training=self.training)
+
         attn_output = torch.matmul(attn_weights, value_states)
 
         attn_output = self._apply_output_linear(attn_output, self.o_proj.weight, self.num_heads)
@@ -446,6 +457,19 @@ class FQwen2DecoderLayer(nn.Module):
         x = torch.einsum("ibsd,wi->wbsd", x.unsqueeze(0), self.mlp_write_common_mask)
         residual = residual + x
         return residual, torch.sum(z)
+    
+    def _norm_headwise(self, x):
+
+        n, b, s, d = x.shape
+        x_flat = x.reshape(n * b, s, d)
+        variance = x_flat.pow(2).mean(-1, keepdim=True)
+        print(f"Layer {self.layer_idx} norm variance min: {variance.min().item():.2e}, max: {variance.max().item():.2e}")
+        x_normed = x_flat * torch.rsqrt(variance + self.input_layernorm.variance_epsilon)
+        x_normed = self.input_layernorm.weight * x_normed
+        is_zero = (variance < 1e-10)
+        x_normed = x_normed * (~is_zero).float()
+        print(f"Layer {self.layer_idx} after norm max: {x_normed.abs().max().item():.2e}")
+        return x_normed.reshape(n, b, s, d)
 
     def forward(
         self,
@@ -463,9 +487,10 @@ class FQwen2DecoderLayer(nn.Module):
         residual = hidden_states
 
         q_hidden_states, k_hidden_states, v_hidden_states, z_attn_edges_sum = self.attn_read(hidden_states, corr_x=corr_x, embeds=embeds)
-        q_hidden_states = self.input_layernorm(q_hidden_states)
-        k_hidden_states = self.input_layernorm(k_hidden_states)
-        v_hidden_states = self.input_layernorm(v_hidden_states)
+
+        q_hidden_states = self._norm_headwise(q_hidden_states)
+        k_hidden_states = self._norm_headwise(k_hidden_states)
+        v_hidden_states = self._norm_headwise(v_hidden_states)
 
         hidden_states, self_attn_weights, present_key_value = self.self_attn(
             q_hidden_states=q_hidden_states,
@@ -539,15 +564,23 @@ class FQwen2PreTrainedModel(PreTrainedModel):
     _supports_cache_class = True
 
     def _init_weights(self, module):
+        
         std = self.config.initializer_range
         if isinstance(module, nn.Linear):
             module.weight.data.normal_(mean=0.0, std=std)
-            if module.bias is not None:
-                module.bias.data.zero_()
+
         elif isinstance(module, nn.Embedding):
             module.weight.data.normal_(mean=0.0, std=std)
             if module.padding_idx is not None:
                 module.weight.data[module.padding_idx].zero_()
+
+        elif isinstance(module, FQwen2DecoderLayer):
+            module.q_read_log_alphas.data.normal_(mean=10.0, std=0.01)
+            module.k_read_log_alphas.data.normal_(mean=10.0, std=0.01)
+            module.v_read_log_alphas.data.normal_(mean=10.0, std=0.01)
+            module.attn_write_log_alphas.data.normal_(mean=10.0, std=0.01)
+            module.mlp_read_log_alphas.data.normal_(mean=10.0, std=0.01)
+            module.mlp_write_log_alphas.data.normal_(mean=10.0, std=0.01)
 
 class FQwen2Model(FQwen2PreTrainedModel):
     def __init__(
@@ -802,9 +835,9 @@ class FQwen2Model(FQwen2PreTrainedModel):
             z_nodes_sum = torch.sum(z_tokens)
             return hidden_states, None, z_nodes_sum
         else:
-            hidden_states = torch.zeros(self.num_writers, *tok_embeds.shape, dtype=tok_embeds.dtype, device=tok_embeds.device)
+            hidden_states = tok_embeds.unsqueeze(0).expand(self.num_writers, -1, -1, -1).clone()
             z_nodes_sum = 0
-            return hidden_states, tok_embeds, z_nodes_sum
+            return hidden_states, None, z_nodes_sum
 
     def forward(
         self,
@@ -865,7 +898,7 @@ class FQwen2Model(FQwen2PreTrainedModel):
         all_self_attns = () if output_attentions else None
         next_decoder_cache = None
 
-        for decoder_layer in self.layers:
+        for i, decoder_layer in enumerate(self.layers):
             if output_hidden_states:
                 all_hidden_states += (hidden_states,)
 
@@ -898,6 +931,9 @@ class FQwen2Model(FQwen2PreTrainedModel):
             hidden_states, z_layer_edges_sum, z_layer_nodes_sum = layer_outputs[0], layer_outputs[1], layer_outputs[2]
             z_edges_sum = z_edges_sum + z_layer_edges_sum
             z_nodes_sum = z_nodes_sum + z_layer_nodes_sum
+
+            collapsed = hidden_states.sum(dim=0)  # (batch, seq, hidden)
+            print(f"Layer {i} collapsed NaN: {torch.isnan(collapsed).any().item()}, max: {collapsed.abs().max().item()}")
 
             if use_cache:
                 next_decoder_cache = layer_outputs[4 if output_attentions else 3]
@@ -1145,190 +1181,44 @@ class FQwen2ForCausalLM(FQwen2PreTrainedModel):
 
 
 if __name__ == '__main__':
-    class FQwen2ForCausalLM(FQwen2PreTrainedModel):
 
-        def __init__(
-            self,
-            config: Qwen2Config,
-            with_embedding_nodes: bool = False,
-            disable_linear_regularization_term=False,
-        ):
-            super().__init__(config)
-            self.model = FQwen2Model(
-                config,
-                with_embedding_nodes=with_embedding_nodes,
-                disable_linear_regularization_term=disable_linear_regularization_term
-            )
-            self.vocab_size = config.vocab_size
-            self.lm_head = nn.Linear(config.hidden_size, config.vocab_size, bias=False)
-            self.post_init()
-
-        def get_input_embeddings(self):
-            return self.model.embed_tokens
-
-        def set_input_embeddings(self, value):
-            self.model.embed_tokens = value
-
-        def get_output_embeddings(self):
-            return self.lm_head
-
-        def set_output_embeddings(self, new_embeddings):
-            self.lm_head = new_embeddings
-
-        def get_decoder(self):
-            return self.model
-
-        @torch.no_grad()
-        def set_edge_threshold_for_deterministic(self, edge_threshold_for_deterministic):
-            self.model.set_edge_threshold_for_deterministic(edge_threshold_for_deterministic)
-
-        @torch.no_grad()
-        def set_node_threshold_for_deterministic(self, node_threshold_for_deterministic):
-            self.model.set_node_threshold_for_deterministic(node_threshold_for_deterministic)
-
-        @torch.no_grad()
-        def get_edge_masks(self):
-            return self.model.get_edge_masks()
-
-        @torch.no_grad()
-        def get_node_masks(self):
-            return self.model.get_node_masks()
-
-        @torch.no_grad()
-        def get_edge_sparsity(self):
-            return self.model.get_edge_sparsity()
-
-        @torch.no_grad()
-        def get_node_sparsity(self):
-            return self.model.get_node_sparsity()
-
-        @torch.no_grad()
-        def get_effective_edge_sparsity(self):
-            return self.model.get_effective_edge_sparsity()
-
-        @torch.no_grad()
-        def get_edges(self):
-            return self.model.get_edges()
-
-        @torch.no_grad()
-        def reset_all_log_alphas(self):
-            self.model.reset_all_log_alphas()
-
-        def forward(
-            self,
-            input_ids: torch.LongTensor = None,
-            attention_mask: Optional[torch.Tensor] = None,
-            position_ids: Optional[torch.LongTensor] = None,
-            past_key_values: Optional[List[torch.FloatTensor]] = None,
-            inputs_embeds: Optional[torch.FloatTensor] = None,
-            labels: Optional[torch.LongTensor] = None,
-            use_cache: Optional[bool] = None,
-            output_attentions: Optional[bool] = None,
-            output_hidden_states: Optional[bool] = None,
-            return_dict: Optional[bool] = None,
-            cache_position: Optional[torch.LongTensor] = None,
-            target_edge_sparsity: Optional[float] = None,
-            target_node_sparsity: Optional[float] = None,
-            corr_x=None,
-            output_writer_states: Optional[bool] = False,
-        ) -> Union[Tuple, FQwen2ForCausalLMOutput]:
-            output_attentions = output_attentions if output_attentions is not None else self.config.output_attentions
-            output_hidden_states = output_hidden_states if output_hidden_states is not None else self.config.output_hidden_states
-            return_dict = return_dict if return_dict is not None else self.config.use_return_dict
-
-            outputs = self.model(
-                input_ids=input_ids,
-                attention_mask=attention_mask,
-                position_ids=position_ids,
-                past_key_values=past_key_values,
-                inputs_embeds=inputs_embeds,
-                use_cache=use_cache,
-                output_attentions=output_attentions,
-                output_hidden_states=output_hidden_states,
-                return_dict=return_dict,
-                cache_position=cache_position,
-                target_edge_sparsity=target_edge_sparsity,
-                target_node_sparsity=target_node_sparsity,
-                corr_x=corr_x,
-                output_writer_states=output_writer_states,
-            )
-
-            hidden_states = outputs[0]
-            logits = self.lm_head(hidden_states)
-            logits = logits.float()
-
-            loss = None
-            if labels is not None:
-                shift_logits = logits[..., :-1, :].contiguous()
-                shift_labels = labels[..., 1:].contiguous()
-                loss_fct = CrossEntropyLoss()
-                shift_logits = shift_logits.view(-1, self.config.vocab_size)
-                shift_labels = shift_labels.view(-1)
-                shift_labels = shift_labels.to(shift_logits.device)
-                loss = loss_fct(shift_logits, shift_labels)
-
-            if not return_dict:
-                output = (logits,) + outputs[1:]
-                return (loss,) + output if loss is not None else output
-
-            return FQwen2ForCausalLMOutput(
-                lm_loss=loss,
-                logits=logits,
-                past_key_values=outputs.past_key_values,
-                hidden_states=outputs.hidden_states,
-                attentions=outputs.attentions,
-                writer_states=outputs.writer_states,
-                target_edge_sparsity=outputs.target_edge_sparsity,
-                target_node_sparsity=outputs.target_node_sparsity,
-                model_edge_sparsity=outputs.model_edge_sparsity,
-                model_node_sparsity=outputs.model_node_sparsity,
-                edge_loss=outputs.edge_loss,
-                node_loss=outputs.node_loss,
-            )
-
-
-if __name__ == '__main__':
     from transformers import Qwen2Config, AutoTokenizer, Qwen2ForCausalLM
+    
+    original = Qwen2ForCausalLM.from_pretrained('Qwen/Qwen2.5-0.5B')
+
     model = FQwen2ForCausalLM.from_pretrained(
         'Qwen/Qwen2.5-0.5B',
-        with_embedding_nodes=True
+        with_embedding_nodes=False
     )
+
     tokenizer = AutoTokenizer.from_pretrained('Qwen/Qwen2.5-0.5B')
     inputs = tokenizer("Hi, my name is", return_tensors="pt")
-    model.train()
-    outputs = model(**inputs)
-    print("Success! Logits shape:", outputs.logits.shape)
-    model = FQwen2ForCausalLM.from_pretrained(
-        'Qwen/Qwen2.5-0.5B',
-        with_embedding_nodes=True
-    )
 
-
-    original = Qwen2ForCausalLM.from_pretrained('Qwen/Qwen2.5-0.5B')
-    original.eval()
-    model.eval()
-    model.reset_all_log_alphas()
-
-    # Set all edge thresholds to use deterministic mode with threshold 0
-    # This means all masks = 1 (keep all edges)
-    model.set_edge_threshold_for_deterministic(0.0)
-    model.set_node_threshold_for_deterministic(0.0)
+    model = model.float()
+    original = original.float()
 
     with torch.no_grad():
         original_logits = original(**inputs).logits
+    print("Original NaN?", torch.isnan(original_logits).any().item())
+    print("Original max:", original_logits.abs().max().item())
+
+    model.eval()
+    model.reset_all_log_alphas()
+    model.set_edge_threshold_for_deterministic(0.0)
+    model.set_node_threshold_for_deterministic(0.0)
+
+    fqwen_layer_outputs = {}
+    def make_fqwen_hook(i):
+        def hook(module, input, output):
+            fqwen_layer_outputs[i] = output[0].detach()
+        return hook
+
+    for i, layer in enumerate(model.model.layers):
+        layer.register_forward_hook(make_fqwen_hook(i))
+
+    with torch.no_grad():
         fqwen_logits = model(**inputs).logits
 
-    print("Max diff:", (original_logits.float() - fqwen_logits.float()).abs().max().item())
-    print("Any NaN in fqwen?", torch.isnan(fqwen_logits).any().item())
-    print("Any NaN in original?", torch.isnan(original_logits).any().item())
-
-    # Check if the issue is in the bias handling in _apply_headwise_linear
-    # Print the q_proj bias of both models
-    print("Original q_proj bias:", original.model.layers[0].self_attn.q_proj.bias[:5])
-    print("FQwen q_proj bias:", model.model.layers[0].self_attn.q_proj.bias[:5])
-
-    # Check the state dict keys for attention
-orig_keys = [k for k in original.state_dict().keys() if 'layers.0.self_attn' in k]
-fqwen_keys = [k for k in model.state_dict().keys() if 'layers.0.self_attn' in k]
-print("Original keys:", orig_keys)
-print("FQwen keys:", fqwen_keys)
+    for i in range(24):
+        fqwen = fqwen_layer_outputs[i]
+        print(f"Layer {i} - NaN: {torch.isnan(fqwen).any().item()}, max: {fqwen.abs().max().item()}")
