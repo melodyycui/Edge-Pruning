@@ -68,7 +68,7 @@ def main():
             layer.attn_write_log_alphas.fill_(10.0)  # keep all nodes
             layer.mlp_read_log_alphas.fill_(-10.0)
             layer.mlp_write_log_alphas.fill_(10.0)   # keep all nodes
-        model.final_read_log_alphas.fill_(-10.0)
+        model.transformer.final_read_log_alphas.fill_(-10.0)
 
     # Now set +10 for edges in circuit
     # We need writer_name_to_idx and similar from the model
@@ -83,7 +83,7 @@ def main():
                     # final_read_log_alphas
                     from modeling_fpt2 import writer_name_to_idx
                     w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
-                    model.final_read_log_alphas.data[w_idx] = 10.0
+                    model.transformer.final_read_log_alphas.data[w_idx] = 10.0
                 elif reader.startswith("m"):
                     layer_idx = int(reader[1:])
                     from modeling_fpt2 import writer_name_to_idx
