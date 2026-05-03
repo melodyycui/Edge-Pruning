@@ -63,7 +63,7 @@ def main():
             layer.attn_write_log_alphas.fill_(10.0)  # keep all nodes
             layer.mlp_read_log_alphas.fill_(-10.0)
             layer.mlp_write_log_alphas.fill_(10.0)   # keep all nodes
-        model.transformer.final_read_log_alphas.fill_(-10.0)
+        model.final_read_log_alphas.fill_(-10.0)
 
     # Now set +10 for edges in circuit
     # We need writer_name_to_idx and similar from the model
@@ -71,33 +71,34 @@ def main():
     num_heads = model.transformer.h[0].attn.num_heads
     num_layers = len(model.transformer.h)
 
-    for writer, reader in edges:
-        try:
-            if reader == "resid_post":
-                # final_read_log_alphas
-                from modeling_fpt2 import writer_name_to_idx
-                w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
-                model.transformer.final_read_log_alphas[w_idx] = 10.0
-            elif reader.startswith("m"):
-                layer_idx = int(reader[1:])
-                from modeling_fpt2 import writer_name_to_idx
-                w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
-                model.transformer.h[layer_idx].mlp_read_log_alphas[w_idx] = 10.0
-            elif reader.startswith("a"):
-                parts = reader.split(".")
-                layer_idx = int(parts[0][1:])
-                head_idx = int(parts[1][1:])
-                qkv = parts[2]
-                from modeling_fpt2 import writer_name_to_idx
-                w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
-                if qkv == "q":
-                    model.transformer.h[layer_idx].q_read_log_alphas[w_idx, head_idx] = 10.0
-                elif qkv == "k":
-                    model.transformer.h[layer_idx].k_read_log_alphas[w_idx, head_idx] = 10.0
-                elif qkv == "v":
-                    model.transformer.h[layer_idx].v_read_log_alphas[w_idx, head_idx] = 10.0
-        except Exception as e:
-            print(f"Error processing edge {writer}->{reader}: {e}")
+    with torch.no_grad():
+        for writer, reader in edges:
+            try:
+                if reader == "resid_post":
+                    # final_read_log_alphas
+                    from modeling_fpt2 import writer_name_to_idx
+                    w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
+                    model.final_read_log_alphas.data[w_idx] = 10.0
+                elif reader.startswith("m"):
+                    layer_idx = int(reader[1:])
+                    from modeling_fpt2 import writer_name_to_idx
+                    w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
+                    model.transformer.h[layer_idx].mlp_read_log_alphas.data[w_idx] = 10.0
+                elif reader.startswith("a"):
+                    parts = reader.split(".")
+                    layer_idx = int(parts[0][1:])
+                    head_idx = int(parts[1][1:])
+                    qkv = parts[2]
+                    from modeling_fpt2 import writer_name_to_idx
+                    w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
+                    if qkv == "q":
+                        model.transformer.h[layer_idx].q_read_log_alphas.data[w_idx, head_idx] = 10.0
+                    elif qkv == "k":
+                        model.transformer.h[layer_idx].k_read_log_alphas.data[w_idx, head_idx] = 10.0
+                    elif qkv == "v":
+                        model.transformer.h[layer_idx].v_read_log_alphas.data[w_idx, head_idx] = 10.0
+            except Exception as e:
+                print(f"Error processing edge {writer}->{reader}: {e}")
 
     os.makedirs(args.out_dir, exist_ok=True)
     model.save_pretrained(args.out_dir)
