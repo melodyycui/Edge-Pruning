@@ -56,20 +56,20 @@ def main():
     
     # Set all to -10 first
     with torch.no_grad():
-        for layer in model.model.h:
+        for layer in model.transformer.h:
             layer.q_read_log_alphas.fill_(-10.0)
             layer.k_read_log_alphas.fill_(-10.0)
             layer.v_read_log_alphas.fill_(-10.0)
             layer.attn_write_log_alphas.fill_(10.0)  # keep all nodes
             layer.mlp_read_log_alphas.fill_(-10.0)
             layer.mlp_write_log_alphas.fill_(10.0)   # keep all nodes
-        model.model.final_read_log_alphas.fill_(-10.0)
+        model.transformer.final_read_log_alphas.fill_(-10.0)
 
     # Now set +10 for edges in circuit
     # We need writer_name_to_idx and similar from the model
     # Use the existing infrastructure
-    num_heads = model.model.h[0].attn.num_heads
-    num_layers = len(model.model.h)
+    num_heads = model.transformer.h[0].attn.num_heads
+    num_layers = len(model.transformer.h)
 
     for writer, reader in edges:
         try:
@@ -77,12 +77,12 @@ def main():
                 # final_read_log_alphas
                 from modeling_fpt2 import writer_name_to_idx
                 w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
-                model.model.final_read_log_alphas[w_idx] = 10.0
+                model.transformer.final_read_log_alphas[w_idx] = 10.0
             elif reader.startswith("m"):
                 layer_idx = int(reader[1:])
                 from modeling_fpt2 import writer_name_to_idx
                 w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
-                model.model.h[layer_idx].mlp_read_log_alphas[w_idx] = 10.0
+                model.transformer.h[layer_idx].mlp_read_log_alphas[w_idx] = 10.0
             elif reader.startswith("a"):
                 parts = reader.split(".")
                 layer_idx = int(parts[0][1:])
@@ -91,11 +91,11 @@ def main():
                 from modeling_fpt2 import writer_name_to_idx
                 w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
                 if qkv == "q":
-                    model.model.h[layer_idx].q_read_log_alphas[w_idx, head_idx] = 10.0
+                    model.transformer.h[layer_idx].q_read_log_alphas[w_idx, head_idx] = 10.0
                 elif qkv == "k":
-                    model.model.h[layer_idx].k_read_log_alphas[w_idx, head_idx] = 10.0
+                    model.transformer.h[layer_idx].k_read_log_alphas[w_idx, head_idx] = 10.0
                 elif qkv == "v":
-                    model.model.h[layer_idx].v_read_log_alphas[w_idx, head_idx] = 10.0
+                    model.transformer.h[layer_idx].v_read_log_alphas[w_idx, head_idx] = 10.0
         except Exception as e:
             print(f"Error processing edge {writer}->{reader}: {e}")
 
