@@ -31,6 +31,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--acdc-json-path", "-a", required=True)
     parser.add_argument("--out-dir", "-o", default=None)
+    args = parser.parse_args()
     if args.out_dir is None:
         import re
         task = os.path.basename(args.acdc_json_path).replace('-graph.json', '')
