@@ -5,7 +5,7 @@ import argparse
 import torch
 import sys
 sys.path.append(os.path.join(os.getcwd(), "src/modeling/"))
-from modeling_fpt2 import FPT2LMHeadModel
+from modeling_fpt2 import FPT2LMHeadModel, writer_name_to_idx
 
 def convert_node_name_from(name):
     parts = name.split(".")
@@ -84,12 +84,10 @@ def main():
             try:
                 if reader == "resid_post":
                     # final_read_log_alphas
-                    from modeling_fpt2 import writer_name_to_idx
                     w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
                     model.transformer.final_read_log_alphas.data[w_idx] = 10.0
                 elif reader.startswith("m"):
                     layer_idx = int(reader[1:])
-                    from modeling_fpt2 import writer_name_to_idx
                     w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
                     model.transformer.h[layer_idx].mlp_read_log_alphas.data[w_idx] = 10.0
                 elif reader.startswith("a"):
@@ -97,7 +95,6 @@ def main():
                     layer_idx = int(parts[0][1:])
                     head_idx = int(parts[1][1:])
                     qkv = parts[2]
-                    from modeling_fpt2 import writer_name_to_idx
                     w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
                     if qkv == "q":
                         model.transformer.h[layer_idx].q_read_log_alphas.data[w_idx, head_idx] = 10.0
@@ -107,7 +104,8 @@ def main():
                         model.transformer.h[layer_idx].v_read_log_alphas.data[w_idx, head_idx] = 10.0
             except Exception as e:
                 print(f"Error processing edge {writer}->{reader}: {e}")
-
+    
+    print(f"About to makedirs with: {args.out_dir!r}")
     os.makedirs(args.out_dir, exist_ok=True)
     model.save_pretrained(args.out_dir)
     print(f"Saved checkpoint to {args.out_dir}")
