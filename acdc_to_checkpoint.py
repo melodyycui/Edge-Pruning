@@ -31,7 +31,11 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--acdc-json-path", "-a", required=True)
     parser.add_argument("--out-dir", "-o", default=None)
-    args = parser.parse_args()
+    return parser.parse_args()
+
+def main():
+    args = parse_args()
+
     if args.out_dir is None:
         basename = os.path.basename(args.acdc_json_path)
         print(f"basename: {basename}")
@@ -39,10 +43,6 @@ def parse_args():
         print(f"task: {task}")
         args.out_dir = f"data/acdc_checkpoints/{task}/"
         print(f"out_dir: {args.out_dir}")
-    return parser.parse_args()
-
-def main():
-    args = parse_args()
 
     # Load ACDC circuit
     with open(args.acdc_json_path) as f:
