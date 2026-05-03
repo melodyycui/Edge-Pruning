@@ -1,0 +1,107 @@
+# src/eval/acdc_to_checkpoint.py
+import os
+import json
+import argparse
+import torch
+import sys
+sys.path.append(os.path.join(os.getcwd(), "src/modeling/"))
+from modeling_fpt2 import FPT2LMHeadModel
+
+def convert_node_name_from(name):
+    parts = name.split(".")
+    if parts[0] == "head":
+        return f"a{parts[1]}.h{parts[2]}"
+    elif parts[0] == "mlp":
+        return f"m{parts[1]}"
+    else:
+        raise ValueError(f"Unknown from name: {name}")
+
+def convert_node_name_to(name):
+    parts = name.split(".")
+    if parts[0] == "head":
+        return f"a{parts[1]}.h{parts[2]}.{parts[3]}"
+    elif parts[0] == "mlp":
+        return f"m{parts[1]}"
+    elif name == "resid_post":
+        return "resid_post"
+    else:
+        raise ValueError(f"Unknown to name: {name}")
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--acdc-json-path", "-a", required=True)
+    parser.add_argument("--out-dir", "-o", required=True)
+    return parser.parse_args()
+
+def main():
+    args = parse_args()
+
+    # Load ACDC circuit
+    with open(args.acdc_json_path) as f:
+        data = json.load(f)
+
+    edges = []
+    for edge in data["original"]:
+        try:
+            writer = convert_node_name_from(edge["from"])
+            reader = convert_node_name_to(edge["to"])
+            edges.append((writer, reader))
+        except Exception as e:
+            print(f"Skipping {edge}: {e}")
+
+    print(f"Loaded {len(edges)} edges")
+
+    # Load model and set all log_alphas to -10 (prune everything)
+    model = FPT2LMHeadModel.from_pretrained("gpt2", with_embedding_nodes=False)
+    
+    # Set all to -10 first
+    with torch.no_grad():
+        for layer in model.model.h:
+            layer.q_read_log_alphas.fill_(-10.0)
+            layer.k_read_log_alphas.fill_(-10.0)
+            layer.v_read_log_alphas.fill_(-10.0)
+            layer.attn_write_log_alphas.fill_(10.0)  # keep all nodes
+            layer.mlp_read_log_alphas.fill_(-10.0)
+            layer.mlp_write_log_alphas.fill_(10.0)   # keep all nodes
+        model.model.final_read_log_alphas.fill_(-10.0)
+
+    # Now set +10 for edges in circuit
+    # We need writer_name_to_idx and similar from the model
+    # Use the existing infrastructure
+    num_heads = model.model.h[0].attn.num_heads
+    num_layers = len(model.model.h)
+
+    for writer, reader in edges:
+        try:
+            if reader == "resid_post":
+                # final_read_log_alphas
+                from modeling_fpt2 import writer_name_to_idx
+                w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
+                model.model.final_read_log_alphas[w_idx] = 10.0
+            elif reader.startswith("m"):
+                layer_idx = int(reader[1:])
+                from modeling_fpt2 import writer_name_to_idx
+                w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
+                model.model.h[layer_idx].mlp_read_log_alphas[w_idx] = 10.0
+            elif reader.startswith("a"):
+                parts = reader.split(".")
+                layer_idx = int(parts[0][1:])
+                head_idx = int(parts[1][1:])
+                qkv = parts[2]
+                from modeling_fpt2 import writer_name_to_idx
+                w_idx = writer_name_to_idx(writer, num_layers=num_layers, num_heads=num_heads, with_embedding_nodes=False)
+                if qkv == "q":
+                    model.model.h[layer_idx].q_read_log_alphas[w_idx, head_idx] = 10.0
+                elif qkv == "k":
+                    model.model.h[layer_idx].k_read_log_alphas[w_idx, head_idx] = 10.0
+                elif qkv == "v":
+                    model.model.h[layer_idx].v_read_log_alphas[w_idx, head_idx] = 10.0
+        except Exception as e:
+            print(f"Error processing edge {writer}->{reader}: {e}")
+
+    os.makedirs(args.out_dir, exist_ok=True)
+    model.save_pretrained(args.out_dir)
+    print(f"Saved checkpoint to {args.out_dir}")
+
+if __name__ == "__main__":
+    main()
