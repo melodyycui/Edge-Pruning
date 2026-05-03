@@ -30,7 +30,11 @@ def convert_node_name_to(name):
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--acdc-json-path", "-a", required=True)
-    parser.add_argument("--out-dir", "-o", required=True)
+    parser.add_argument("--out-dir", "-o", default=None)
+    if args.out_dir is None:
+        import re
+        task = os.path.basename(args.acdc_json_path).replace('-graph.json', '')
+        args.out_dir = f"data/acdc_checkpoints/{task}/"
     return parser.parse_args()
 
 def main():
