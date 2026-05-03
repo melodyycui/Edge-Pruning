@@ -33,9 +33,12 @@ def parse_args():
     parser.add_argument("--out-dir", "-o", default=None)
     args = parser.parse_args()
     if args.out_dir is None:
-        import re
-        task = os.path.basename(args.acdc_json_path).replace('-graph.json', '')
+        basename = os.path.basename(args.acdc_json_path)
+        print(f"basename: {basename}")
+        task = basename.replace('-graph.json', '')
+        print(f"task: {task}")
         args.out_dir = f"data/acdc_checkpoints/{task}/"
+        print(f"out_dir: {args.out_dir}")
     return parser.parse_args()
 
 def main():
