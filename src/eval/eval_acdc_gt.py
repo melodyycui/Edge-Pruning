@@ -33,6 +33,7 @@ def convert_node_name_to(name):
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--acdc-json-path", "-a", required=True)
+    parser.add_argument("--model-path", "-m", required=True)
     parser.add_argument("--data-path", "-d", default="./data/datasets/gt/")
     parser.add_argument("--device", "-D", default=("cuda" if torch.cuda.is_available() else "cpu"))
     parser.add_argument("--batch-size", "-b", default=32, type=int)
@@ -54,9 +55,8 @@ def main():
 
     print(f"[i] Loaded {len(edges)} edges from ACDC circuit")
 
-    model = FPT2LMHeadModel.from_pretrained("gpt2", with_embedding_nodes=False).to(args.device)
+    model = FPT2LMHeadModel.from_pretrained(args.model_path, with_embedding_nodes=False).to(args.device)
     model.eval()
-    model.load_all_log_alphas(edges)
     model.set_edge_threshold_for_deterministic(0.0)
     model.set_node_threshold_for_deterministic(0.0)
 
